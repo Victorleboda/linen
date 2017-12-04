@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  climate_impact: 1
+  water_impact: 1
+  air_impact: 1
+
+two:
+  name: MyString
+  climate_impact: 1
+  water_impact: 1
+  air_impact: 1

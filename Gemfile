@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
+gem 'bootstrap-sass'
+gem 'simple_form'
 gem 'devise'
 gem 'figaro'
-gem 'jbuilder', '~> 2.0'
+# gem 'jbuilder', '~> 2.0'
 gem 'pg'
 gem 'puma'
 gem 'rails', '5.1.4'
