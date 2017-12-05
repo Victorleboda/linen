@@ -1,0 +1,41 @@
+<div class="container">
+  <% @selections.each do |selection| %>
+    <div class="item">
+      <%= image_tag selection.item.photo, class: "item-image" %>
+      <div class="item-description">
+        <h1><%= selection.item.category %> by <%= selection.item.brand %></h1>
+          <div class="impact-detail">
+            <div class="impact-detail-description">
+              <h2>CLIMATE</h2>
+              <p>Greenhouse effect (g equivalent CO2)</p>
+            </div>
+            <div class="impact-detail-value">
+              <p><%= selection.item.calcul_climate_impact %> g</p>
+               <!-- '<i class="fa fa-circle" aria-hidden="true"></i>'.html_safe, class: item.color_climate %> -->
+            </div>
+          </div>
+          <div class="impact-detail">
+            <div class="impact-detail-description">
+              <h2>WATER</h2>
+              <p>Eutrophication (g equivalent PO4)</p>
+            </div>
+            <div class="impact-detail-value">
+              <p><%= selection.item.calcul_climate_impact %> g</p>
+               <!-- '<i class="fa fa-circle" aria-hidden="true"></i>'.html_safe, class: item.color_climate %> -->
+            </div>
+          </div>
+          <div class="impact-detail">
+            <div class="impact-detail-description">
+              <h2>AIR</h2>
+              <p>Acidification (equivalent SO2)</p>
+            </div>
+            <div class="impact-detail-value">
+              <p><%= selection.item.calcul_climate_impact %> g</p>
+               <!-- '<i class="fa fa-circle" aria-hidden="true"></i>'.html_safe, class: item.color_climate %> -->
+            </div>
+          </div>
+          <p class="evaluation-rules">Evaluated for the materials of 100g of product</p>
+      </div>
+    </div>
+  <% end %>
+</div>
