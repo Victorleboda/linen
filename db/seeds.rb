@@ -7,6 +7,7 @@ Item.destroy_all
 Assembling.destroy_all
 User.destroy_all
 Selection.destroy_all
+Brand.destroy_all
 
 puts "creating users"
 seb = User.new(email: "seb@lewagon.com", password: "password")
@@ -53,17 +54,21 @@ polyuréthane = Material.create(name: "polyuréthane")
 viscose = Material.create(name: "viscose")
 # , climate_impact: , water_impact: , air_impact: )
 
+puts "creating brands"
+new_look = Brand.new(name: "New Look")
+new_look.save!
+
 puts "creating items"
 url1 = "http://www.asos.fr/new-look/new-look-pull-color-block-noir-et-gris/prd/9080710?clr=motifnoir&SearchQuery=&cid=7617&gridcolumn=4&gridrow=7&gridsize=4&pge=1&pgesize=72&totalstyles=1172"
 photo1 = "http://images.asos-media.com/products/new-look-pull-color-block-noir-et-gris/9080710-1-blackpattern?$XXL$&wid=513&fit=constrain"
 item1 = Item.new(url: url1, photo: photo1, price: 23.99, category: "pull", product_code: "1210863")
-item1.brand = Brand.new(name: "New Look")
+item1.brand = new_look
 item1.save!
 
 url2 = "http://www.asos.fr/new-look/new-look-pull-color-block-noir-et-gris/prd/9080710?clr=motifnoir&SearchQuery=&cid=7617&gridcolumn=4&gridrow=7&gridsize=4&pge=1&pgesize=72&totalstyles=1172"
 photo2 = "http://images.asos-media.com/products/new-look-pull-color-block-noir-et-gris/9080710-1-blackpattern?$XXL$&wid=513&fit=constrain"
 item2 = Item.new(url: url1, photo: photo1, price: 23.99, category: "pull", product_code: "1210863")
-item2.brand = Brand.new(name: "New Look")
+item2.brand = new_look
 item2.save!
 
 puts "creating assemblings"

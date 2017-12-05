@@ -3,38 +3,38 @@
     <div class="item">
       <%= image_tag selection.item.photo, class: "item-image" %>
       <div class="item-description">
-        <h1><%= selection.item.category %> by <%= selection.item.brand %></h1>
+        <h2><%= selection.item.category %> by <%= selection.item.brand.name %></h2>
           <div class="impact-detail">
             <div class="impact-detail-description">
-              <h2>CLIMATE</h2>
+              <p><strong><i class="fa fa-globe" aria-hidden="true"></i> CLIMATE</strong></p>
               <p>Greenhouse effect (g equivalent CO2)</p>
             </div>
             <div class="impact-detail-value">
               <p><%= selection.item.calcul_climate_impact %> g</p>
-               <!-- '<i class="fa fa-circle" aria-hidden="true"></i>'.html_safe, class: item.color_climate %> -->
             </div>
+            <i class="fa fa-circle status <%= selection.item.color_climate %>" aria-hidden="true"></i>
           </div>
           <div class="impact-detail">
             <div class="impact-detail-description">
-              <h2>WATER</h2>
+              <p><strong><i class="fa fa-tint" aria-hidden="true"></i> WATER</strong></p>
               <p>Eutrophication (g equivalent PO4)</p>
             </div>
             <div class="impact-detail-value">
               <p><%= selection.item.calcul_climate_impact %> g</p>
-               <!-- '<i class="fa fa-circle" aria-hidden="true"></i>'.html_safe, class: item.color_climate %> -->
             </div>
+            <i class="fa fa-circle status <%= selection.item.color_water %>" aria-hidden="true"></i>
           </div>
           <div class="impact-detail">
             <div class="impact-detail-description">
-              <h2>AIR</h2>
+              <p><strong><i class="fa fa-cloud" aria-hidden="true"></i> AIR</strong></p>
               <p>Acidification (equivalent SO2)</p>
             </div>
             <div class="impact-detail-value">
               <p><%= selection.item.calcul_climate_impact %> g</p>
-               <!-- '<i class="fa fa-circle" aria-hidden="true"></i>'.html_safe, class: item.color_climate %> -->
             </div>
+            <i class="fa fa-circle status <%= selection.item.color_air %>" aria-hidden="true"></i>
           </div>
-          <p class="evaluation-rules">Evaluated for the materials of 100g of product</p>
+          <p class="evaluation-rules"><em>Evaluated for the materials of 100g of product</em></p>
       </div>
     </div>
   <% end %>
