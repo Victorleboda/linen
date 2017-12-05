@@ -2,7 +2,6 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 puts "destroy all materials, items, assemblings, selections and users"
-
 Material.destroy_all
 Item.destroy_all
 Assembling.destroy_all
@@ -66,52 +65,6 @@ assembling1 = Assembling.new(percent: 100)
 assembling1.material = coton
 assembling1.item = item1
 assembling1.save!
-=======
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-angora = Material.new(name: "Fil d'angora")
-# , climate_impact: -3.5e+1, water_impact: 2.2e-3, air_impact:)
-cachemire = Material.new(name: "Fil de cachemire")
-# , climate_impact: , water_impact: , air_impact:)
-chanvre = Material.new(name: "Fil de chanvre")
-# , climate_impact: , water_impact: , air_impact:)
-coton = Material.new(name: "Fil de coton")
-# , climate_impact: , water_impact: , air_impact:)
-jute = Material.new(name: "Fil de jute")
-# , climate_impact: , water_impact: , air_impact:)
-laine_de_chameau = Material.new(name: "Fil de laine de chameau")
-# , climate_impact: , water_impact: , air_impact:)
-laine_de_mouton = Material.new(name: "Fil de laine de mouton")
-# , climate_impact: , water_impact: , air_impact:)
-lin = Material.new(name: "Fil de lin (étoupe)")
-# , climate_impact: , water_impact: , air_impact:)
-lin2 = Material.new(name: "Fil de lin (filasse)")
-# , climate_impact: , water_impact: , air_impact:)
-soie = Material.new(name: "Fil de soie")
-# , climate_impact: , water_impact: , air_impact:
-polypropylene = Material.new(name: "Filament bi-composant polypropylène/polyamide")
-# , climate_impact: , water_impact: , air_impact:)
-acrylique = Material.new(name: "Filament d'acrylique")
-# , climate_impact: , water_impact: , air_impact:)
-aramide = Material.new(name: "Filament d'aramide")
-# , climate_impact: , water_impact: , air_impact:)
-polyamide = Material.new(name: "Filament de polyamide 66")
-# , climate_impact: , water_impact: , air_impact:)
-pokyester = Material.new(name: "Filament de polyester")
-# , climate_impact: , water_impact: , air_impact:)
-polyethykene = Material.new(name: "Filament de polyéthylène")
-# , climate_impact: , water_impact: , air_impact:)
-polylactide = Material.new(name: "Filament de polylactide")
-# , climate_impact: , water_impact: , air_impact:)
-polypropylene = Material.new(name: "Filament de polypropylène")
-# , climate_impact: , water_impact: , air_impact:)
-polyuréthane = Material.new(name: "Filament de polyuréthane")
-# , climate_impact: , water_impact: , air_impact:)
-viscose = Material.new(name: "Filament de viscose")
-# , climate_impact: , water_impact: , air_impact:)
-
 
 puts "creating selections"
 selection1 = Selection.new(user: seb, item: item1)
