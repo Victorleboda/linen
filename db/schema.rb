@@ -1,3 +1,5 @@
+ActiveRecord::Schema.define(version: 20171205105414) do
+
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205095810) do
+ActiveRecord::Schema.define(version: 20171205130228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +21,10 @@ ActiveRecord::Schema.define(version: 20171205095810) do
     t.integer "percent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "item_id"
+    t.bigint "material_id"
+    t.index ["item_id"], name: "index_assemblings_on_item_id"
+    t.index ["material_id"], name: "index_assemblings_on_material_id"
   end
 
   create_table "brands", force: :cascade do |t|
@@ -52,6 +58,10 @@ ActiveRecord::Schema.define(version: 20171205095810) do
   create_table "selections", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_selections_on_item_id"
+    t.index ["user_id"], name: "index_selections_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,5 +81,9 @@ ActiveRecord::Schema.define(version: 20171205095810) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assemblings", "items"
+  add_foreign_key "assemblings", "materials"
   add_foreign_key "items", "brands"
+  add_foreign_key "selections", "items"
+  add_foreign_key "selections", "users"
 end
