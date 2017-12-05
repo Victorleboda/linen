@@ -28,31 +28,31 @@ class Item < ApplicationRecord
 
   def color_climate
     if self.calcul_climate_impact > LIMIT[:climate][:max]
-      return "red"
+      return "bad_impact"
     elsif self.calcul_climate_impact < LIMIT[:climate][:min]
-      return "green"
+      return "good_impact"
     else
-      return "orange"
+      return "normal_impact"
     end
   end
 
   def color_water
     if self.calcul_water_impact > LIMIT[:water][:max]
-      return "red"
+      return "bad_impact"
     elsif self.calcul_water_impact < LIMIT[:water][:min]
-      return "green"
+      return "good_impact"
     else
-      return "orange"
+      return "normal_impact"
     end
   end
 
   def color_air
     if self.calcul_air_impact > LIMIT[:air][:max]
-      return "red"
+      return "bad_impact"
     elsif self.calcul_air_impact < LIMIT[:air][:min]
-      return "green"
+      return "good_impact"
     else
-      return "orange"
+      return "normal_impact"
     end
   end
 end
