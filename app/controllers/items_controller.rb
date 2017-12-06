@@ -4,8 +4,11 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
   end
-# si c'est une page produit, faire une requete http au server (mettre scraper dans private)
-# enregistrer dans database
+  
+  def show
+      # une partie pour l'extension
+  end
+  
   def create
     @item = Item.new(items_params)
     # if @item.save

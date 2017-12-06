@@ -1,0 +1,53 @@
+.item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  padding: 20px 40px;
+}
+.item:last-child {
+  border-bottom: none;
+}
+.item-image {
+  width: 200px;
+}
+.item-description {
+  flex-grow: 1;
+  padding: 0px 30px;
+}
+.item-description h2 {
+  font-size: 16px;
+  margin: 0;
+}
+.impact-detail {
+  display: flex;
+  align-items: center;
+}
+.impact-detail-description {
+  font-size: 16px;
+  flex-grow: 1;
+  max-width: 500px;
+  margin: 6px 0px;
+}
+.impact-detail-description p {
+  margin: 0;
+}
+.evaluation-rules {
+  font-size: 13px;
+}
+.impact-detail-value p {
+  margin: 0;
+}
+.status {
+  padding: 0 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.good_impact {
+  color: #04A366;
+}
+.bad_impact {
+  color: red;
+}
+.normal_impact {
+  color: orange;
+}
