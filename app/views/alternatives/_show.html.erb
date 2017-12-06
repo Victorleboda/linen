@@ -1,0 +1,26 @@
+<style type="text/css">
+  .alternative {
+    display: flex;
+  }
+  .alternative-image {
+    flex: 0 0 70px;
+  }
+  .alternative-description {
+    flex-grow: 1;
+  }
+</style>
+
+<div class="extension">
+  <h1><%= alternatives.count %>  Items</h1>
+  <% alternatives.each do |alternative| %>
+  <div class="alternative">
+    <%= image_tag alternative.photo, class: "alternative-image" %>
+    <div class="alternative-description">
+      <h2><%= alternative.title %></h2>
+      <p><%= alternative.brand %> . <%= alternative.price %></p>
+      <%= link_to "GO", alternative.url %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
