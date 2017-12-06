@@ -2,7 +2,14 @@
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(220,224,244,0.4);
-  padding: 20px 40px;
+  padding: 40px 60px;
+  background-color: white;
+}
+.item:first-child {
+  margin-top: 5px;
+}
+.item:last-child {
+  margin-bottom: 5px;
 }
 .item:last-child {
   border-bottom: none;
@@ -12,11 +19,14 @@
 }
 .item-description {
   flex-grow: 1;
-  padding: 0px 30px;
+  padding: 0px 50px;
 }
 .item-description h2 {
   font-size: 16px;
   margin: 0;
+}
+.impact-description {
+  margin: 10px 0;
 }
 .impact-detail {
   display: flex;
@@ -25,7 +35,7 @@
 .impact-detail-description {
   font-size: 16px;
   flex-grow: 1;
-  max-width: 500px;
+  // max-width: 500px;
   margin: 6px 0px;
 }
 .impact-detail-description p {

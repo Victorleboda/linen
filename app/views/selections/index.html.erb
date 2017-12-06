@@ -1,9 +1,11 @@
 <div class="container">
+  <h1>Your selection</h1>
   <% @selections.each do |selection| %>
     <div class="item">
       <%= image_tag selection.item.photo, class: "item-image" %>
       <div class="item-description">
         <h2><%= selection.item.category %> by <%= selection.item.brand.name %></h2>
+        <div class="impact-description">
           <div class="impact-detail">
             <div class="impact-detail-description">
               <p><strong><i class="fa fa-globe" aria-hidden="true"></i> CLIMATE</strong></p>
@@ -34,7 +36,8 @@
             </div>
             <i class="fa fa-circle status <%= selection.item.color_air %>" aria-hidden="true"></i>
           </div>
-          <p class="evaluation-rules"><em>Evaluated for the materials of 100g of product</em></p>
+        </div>
+        <p class="evaluation-rules"><em>Evaluated for the materials of 100g of product</em></p>
       </div>
     </div>
   <% end %>
