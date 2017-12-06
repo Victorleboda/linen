@@ -8,6 +8,16 @@
   .alternative-description {
     flex-grow: 1;
   }
+  .alternative-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    z-index: 2;
+    background: black;
+    opacity: 0;
+  }
 </style>
 
 <div class="extension">
@@ -18,7 +28,7 @@
     <div class="alternative-description">
       <h2><%= alternative.title %></h2>
       <p><%= alternative.brand %> . <%= alternative.price %></p>
-      <%= link_to "GO", alternative.url %>
+      <%= link_to "", alternative.url, class: "alternative-link" %>
     </div>
   </div>
   <% end %>

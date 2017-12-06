@@ -2,8 +2,12 @@
   <h1>Your selection</h1>
   <% @selections.each do |selection| %>
     <div class="item">
-      <%= image_tag selection.item.photo, class: "item-image" %>
+      <div class="item-image">
+        <%= image_tag selection.item.photo, class: "item-image" %>
+        <%= link_to "", selection.item.url, class: "item-photo-link" %>
+      </div>
       <div class="item-description">
+        <%= link_to selection.item.title, selection.item.url %>
         <h2><%= selection.item.category %> by <%= selection.item.brand.name %></h2>
         <div class="impact-description">
           <div class="impact-detail">
