@@ -2,6 +2,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
   def show
     @item = Item.find_by(product_code: params[:id])
   end
+
   def create
     @item = Item.new(item_params)
     @item.brand = Brand.find_or_create_by(name: params[:brand][:name])
