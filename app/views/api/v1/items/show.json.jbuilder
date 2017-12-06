@@ -3,4 +3,5 @@ json.extract! @item, :calcul_climate_impact, :calcul_water_impact, :calcul_air_i
 #   json.extract! alternative, :url, :photo, :title, :price
 # end
 
+json.impact_detail_html render(partial: "items/show", locals: { item: @item }, formats: [:html])
 json.alternative_html render(partial: "alternatives/show", locals: { alternatives: @item.alternatives }, formats: [:html])
