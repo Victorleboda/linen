@@ -1,0 +1,42 @@
+<div class="item">
+  <div class="item-image">
+    <%= image_tag item.photo, class: "item-image" %>
+    <%= link_to "", item.url, class: "item-photo-link" %>
+  </div>
+  <div class="item-description">
+    <h2><%= item.title %></h2>
+    <div class="impact-description">
+      <div class="impact-detail">
+        <div class="impact-detail-description">
+          <p><strong><i class="fa fa-globe" aria-hidden="true"></i> CLIMATE</strong></p>
+          <p>Greenhouse effect (g equivalent CO2)</p>
+        </div>
+        <div class="impact-detail-value">
+          <p><%= item.calcul_climate_impact %> g</p>
+        </div>
+        <i class="fa fa-circle status <%= item.color_climate %>" aria-hidden="true"></i>
+      </div>
+      <div class="impact-detail">
+        <div class="impact-detail-description">
+          <p><strong><i class="fa fa-tint" aria-hidden="true"></i> WATER</strong></p>
+          <p>Eutrophication (g equivalent PO4)</p>
+        </div>
+        <div class="impact-detail-value">
+          <p><%= item.calcul_climate_impact %> g</p>
+        </div>
+        <i class="fa fa-circle status <%= item.color_water %>" aria-hidden="true"></i>
+      </div>
+      <div class="impact-detail">
+        <div class="impact-detail-description">
+          <p><strong><i class="fa fa-cloud" aria-hidden="true"></i> AIR</strong></p>
+          <p>Acidification (equivalent SO2)</p>
+        </div>
+        <div class="impact-detail-value">
+          <p><%= item.calcul_climate_impact %> g</p>
+        </div>
+        <i class="fa fa-circle status <%= item.color_air %>" aria-hidden="true"></i>
+      </div>
+    </div>
+    <p class="evaluation-rules"><em>Evaluated for the materials of 100g of product</em></p>
+  </div>
+</div>
