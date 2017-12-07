@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChangeDataTypeForClimateImpact < ActiveRecord::Migration[5.1]
   def change
     change_column :materials, :climate_impact, :float

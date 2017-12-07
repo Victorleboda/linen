@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update, :show, :destroy]
+  before_action :set_item, only: %i[edit update show destroy]
 
   def new
     @item = Item.new
   end
-  
+
   def show
-      # une partie pour l'extension
+    # une partie pour l'extension
   end
-  
+
   def create
     @item = Item.new(items_params)
     # if @item.save
@@ -20,7 +22,6 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
   end
-
 
   private
 
