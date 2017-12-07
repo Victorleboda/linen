@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Item < ApplicationRecord
   belongs_to :brand
   has_many :assemblings, dependent: :destroy
@@ -5,7 +7,7 @@ class Item < ApplicationRecord
   validates :title, :category, :price, :url, :photo, presence: true
   validates :product_code, uniqueness: true, presence: true
 
-  LIMIT = {climate: {min: 25, max: 40}, water: {min: 25, max: 40}, air: {min: 25, max: 40}}
+  LIMIT = { climate: { min: 25, max: 40 }, water: { min: 25, max: 40 }, air: { min: 25, max: 40 } }.freeze
 
   def calcul_climate_impact
     self.assemblings.inject(0) { |memo, assembling| memo.to_i + (assembling.percent * 0.01 * assembling.material.climate_impact) }
@@ -28,32 +30,32 @@ class Item < ApplicationRecord
   end
 
   def color_climate
-    if self.calcul_climate_impact > LIMIT[:climate][:max]
-      return "bad_impact"
-    elsif self.calcul_climate_impact < LIMIT[:climate][:min]
-      return "good_impact"
+    if calcul_climate_impact > LIMIT[:climate][:max]
+      'bad_impact'
+    elsif calcul_climate_impact < LIMIT[:climate][:min]
+      'good_impact'
     else
-      return "normal_impact"
+      'normal_impact'
     end
   end
 
   def color_water
-    if self.calcul_water_impact > LIMIT[:water][:max]
-      return "bad_impact"
-    elsif self.calcul_water_impact < LIMIT[:water][:min]
-      return "good_impact"
+    if calcul_water_impact > LIMIT[:water][:max]
+      'bad_impact'
+    elsif calcul_water_impact < LIMIT[:water][:min]
+      'good_impact'
     else
-      return "normal_impact"
+      'normal_impact'
     end
   end
 
   def color_air
-    if self.calcul_air_impact > LIMIT[:air][:max]
-      return "bad_impact"
-    elsif self.calcul_air_impact < LIMIT[:air][:min]
-      return "good_impact"
+    if calcul_air_impact > LIMIT[:air][:max]
+      'bad_impact'
+    elsif calcul_air_impact < LIMIT[:air][:min]
+      'good_impact'
     else
-      return "normal_impact"
+      'normal_impact'
     end
   end
 
