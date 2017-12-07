@@ -1,9 +1,10 @@
 class Api::V1::ItemsController < Api::V1::BaseController
   def show
-    @item = Item.find_by(product_code: params[:id])
+    @item = Item.find_by!(product_code: params[:id])
   end
+
   def create
-    @item = Item.new(item_params)
+    @item = Item.new(title: params[:title], category: params[:category], price: params[:price], product_code: params[:product_code], photo: params[:photo], url: params[:url])# TODO code hash
     @item.brand = Brand.find_or_create_by(name: params[:brand][:name])
     params[:assemblings].each do |assembling_params|
       @item.assemblings.build(percent: assembling_params[:percent], material: Material.find_or_create_by(name: assembling_params[:material][:name]))
@@ -17,9 +18,9 @@ class Api::V1::ItemsController < Api::V1::BaseController
 
   private
 
-  def item_params
-    params.require(:item).permit(:title, :category, :url, :photo, :product_code, :price)
-  end
+  # def item_params
+  #   params.require(:item).permit(:title, :category, :url, :photo, :product_code, :price)
+  # end
 
   def render_error
     render json: { errors: @item.errors.full_messages },
