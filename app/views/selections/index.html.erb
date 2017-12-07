@@ -6,8 +6,8 @@
         <%= image_tag selection.item.photo, class: "item-image" %>
       </div>
       <div class="item-description">
-        <h2><%= selection.item.title %></h2>
-        <h3><strong><%= selection.item.category %></strong> by <strong><%= selection.item.brand.name %></strong></h3>
+        <h2><%= selection.item.title %></h2><h5><strong><%= selection.item.category %></strong> by <strong><%= selection.item.brand.name %></strong></h5>
+        <%= image_tag "error.png", class:"error"%>
         <%= link_to "Find this item on market place", selection.item.url, class: "market-place-btn" %>
         <div class="impact-description">
           <div class="impact-detail">
