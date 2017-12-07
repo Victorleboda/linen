@@ -1,6 +1,17 @@
 # Relaxed.Ruby.Style
 ## Version 2.1
 inherit_from: .rubocop_todo.yml
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'Gemfile'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'tmp/*'
+    - 'Guardfile'
+    - 'Gemfile'
+    - 'node_modules/**/*' #webpacker & rails 5.
 
 Style/Alias:
   Enabled: false
