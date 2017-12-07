@@ -1,33 +1,28 @@
 <style type="text/css">
+  .photo img {
+      width: 150px;
+      display: flex;
+
+    }
+
   .alternatives {
     display: flex;
     flex-direction: column;
-  }
-
-  .alternative-show {
-    display: flex;
     align-items: center;
-    justify-content: center;
-  }
-  .photo img {
-    width: 150px;
+    justify-content: space-between;
   }
 
-  .alternative-others {
-  }
-
-  .alternative {
-  }
 </style>
 
-<div class="alternatives">
-  <div class="alternative-show">
-    <div class="photo">
-    <% first_alternative = alternatives.first %>
-    <%= image_tag first_alternative.photo, class: "first_photo" %>
-    </div>
-    <div class="right"></div>
-  </div>
 
+<div class= "alternatives">
+  <h1>Kikou</h1>
+  <div class="photo">
+    <% @item.alternatives.each do|alternative| %>
+        <%= image_tag alternative.photo%>
+    <% end %>
+  </div>
 </div>
+
+
 
