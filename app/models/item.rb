@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   belongs_to :brand
   has_many :assemblings, dependent: :destroy
   has_many :selections, dependent: :destroy
-  validates :title, :category, :price, :url, :photo, presence: true
+  validates :title, :category, :price, :url, :photo, :gender, presence: true
   validates :product_code, uniqueness: true, presence: true
 
   LIMIT = { climate: { min: 25, max: 40 }, water: { min: 25, max: 40 }, air: { min: 25, max: 40 } }.freeze
@@ -61,7 +61,7 @@ class Item < ApplicationRecord
 
   def alternatives
     alternative_items = []
-    category_items = Item.where(category: self.category).where.not(id: self.id)
+    category_items = Item.where(category: self.category).where(gender: self.gender).where.not(id: self.id)
     category_items.each do |category_item|
       if (category_item.color_water == "good_impact") && (category_item.color_air == "good_impact") && (category_item.color_climate == "good_impact")
         alternative_items << category_item
