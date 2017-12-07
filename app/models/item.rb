@@ -1,58 +1,60 @@
+# frozen_string_literal: true
+
 class Item < ApplicationRecord
   belongs_to :brand
   has_many :assemblings, dependent: :destroy
   has_many :selections, dependent: :destroy
   validates :category, :price, :url, :photo, :product_code, presence: true
 
-  LIMIT = {climate: {min: 25, max: 40}, water: {min: 25, max: 40}, air: {min: 25, max: 40}}
+  LIMIT = { climate: { min: 25, max: 40 }, water: { min: 25, max: 40 }, air: { min: 25, max: 40 } }.freeze
 
   def calcul_climate_impact
-    self.assemblings.inject(0) { |memo, assembling| memo + (assembling.percent * 0.01 * assembling.material.climate_impact) }
+    assemblings.inject(0) { |memo, assembling| memo + (assembling.percent * 0.01 * assembling.material.climate_impact) }
   end
 
   def calcul_water_impact
     item_climate_impact = 0
-    self.assemblings.each do |assembling|
+    assemblings.each do |assembling|
       item_climate_impact += (assembling.percent * 0.01 * assembling.material.water_impact)
     end
-    return item_climate_impact
+    item_climate_impact
   end
 
   def calcul_air_impact
     item_climate_impact = 0
-    self.assemblings.each do |assembling|
+    assemblings.each do |assembling|
       item_climate_impact += (assembling.percent * 0.01 * assembling.material.air_impact)
     end
-    return item_climate_impact
+    item_climate_impact
   end
 
   def color_climate
-    if self.calcul_climate_impact > LIMIT[:climate][:max]
-      return "bad_impact"
-    elsif self.calcul_climate_impact < LIMIT[:climate][:min]
-      return "good_impact"
+    if calcul_climate_impact > LIMIT[:climate][:max]
+      'bad_impact'
+    elsif calcul_climate_impact < LIMIT[:climate][:min]
+      'good_impact'
     else
-      return "normal_impact"
+      'normal_impact'
     end
   end
 
   def color_water
-    if self.calcul_water_impact > LIMIT[:water][:max]
-      return "bad_impact"
-    elsif self.calcul_water_impact < LIMIT[:water][:min]
-      return "good_impact"
+    if calcul_water_impact > LIMIT[:water][:max]
+      'bad_impact'
+    elsif calcul_water_impact < LIMIT[:water][:min]
+      'good_impact'
     else
-      return "normal_impact"
+      'normal_impact'
     end
   end
 
   def color_air
-    if self.calcul_air_impact > LIMIT[:air][:max]
-      return "bad_impact"
-    elsif self.calcul_air_impact < LIMIT[:air][:min]
-      return "good_impact"
+    if calcul_air_impact > LIMIT[:air][:max]
+      'bad_impact'
+    elsif calcul_air_impact < LIMIT[:air][:min]
+      'good_impact'
     else
-      return "normal_impact"
+      'normal_impact'
     end
   end
 end

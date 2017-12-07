@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateAssemblings < ActiveRecord::Migration[5.1]
   def change
     create_table :assemblings do |t|
