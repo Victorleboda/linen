@@ -19,11 +19,24 @@
 }
 .item-description {
   flex-grow: 1;
-  padding: 0px 50px;
+  padding: 0px 70px;
+  position: relative;
 }
 .item-description h2 {
-  font-size: 16px;
+  font-size: 22px;
   margin: 0;
+}
+.item-description h3 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: bold;
+}
+.market-place-btn {
+  position: absolute;
+  font-size: 14px;
+  top: 10px;
+  right: 20px;
+  font-style: italic;
 }
 .impact-description {
   margin: 10px 0;
@@ -43,6 +56,8 @@
 }
 .evaluation-rules {
   font-size: 13px;
+  color: $linenblue;
+  opacity: 0.7;
 }
 .impact-detail-value p {
   margin: 0;

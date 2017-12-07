@@ -4,11 +4,11 @@
     <div class="item">
       <div class="item-image">
         <%= image_tag selection.item.photo, class: "item-image" %>
-        <%= link_to "", selection.item.url, class: "item-photo-link" %>
       </div>
       <div class="item-description">
-        <%= link_to selection.item.title, selection.item.url %>
-        <h2><%= selection.item.category %> by <%= selection.item.brand.name %></h2>
+        <h2><%= selection.item.title %></h2>
+        <h3><strong><%= selection.item.category %></strong> by <strong><%= selection.item.brand.name %></strong></h3>
+        <%= link_to "Find this item on market place", selection.item.url, class: "market-place-btn" %>
         <div class="impact-description">
           <div class="impact-detail">
             <div class="impact-detail-description">
