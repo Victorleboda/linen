@@ -1,9 +1,14 @@
+.container h1 {
+  margin: 30px 0;
+}
 .item {
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(220,224,244,0.4);
-  padding: 40px 60px;
+  padding: 30px 50px;
   background-color: white;
+  margin: 15 20px;
+  margin-top: 15px;
 }
 .item:first-child {
   margin-top: 5px;
@@ -16,10 +21,11 @@
 }
 .item-image {
   width: 200px;
+  border-radius: 4px;
 }
 .item-description {
   flex-grow: 1;
-  padding: 0px 70px;
+  padding: 0px 20px;
   position: relative;
 }
 .item-description h2 {
@@ -34,10 +40,11 @@
 .market-place-btn {
   position: absolute;
   font-size: 14px;
-  top: 10px;
+  bottom: -13px;
   right: 20px;
   font-style: italic;
 }
+
 .impact-description {
   margin: 10px 0;
 }
@@ -86,3 +93,25 @@
   background: black;
   opacity: 0;
 }
+.title-item {
+  display: flex;
+  justify-content: space-evently;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 5px;
+  h3 {
+    margin-left: 10px;
+    font-weight : lighter;
+    font-size: 15px;
+    margin-top: 5px;
+  }
+}
+.first-line {
+  display: flex;
+  justify-content: space-between;
+.cancel {
+  height: 15px;
+}
+}
+

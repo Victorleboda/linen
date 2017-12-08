@@ -5,44 +5,67 @@
       <div class="item-image">
         <%= image_tag selection.item.photo, class: "item-image" %>
       </div>
+
       <div class="item-description">
-        <h2><%= selection.item.title %></h2>
-        <h3><strong><%= selection.item.category %></strong> by <strong><%= selection.item.brand.name %></strong></h3>
-        <%= link_to "Find this item on market place", selection.item.url, class: "market-place-btn" %>
-        <div class="impact-description">
-          <div class="impact-detail">
-            <div class="impact-detail-description">
-              <p><strong><i class="fa fa-globe" aria-hidden="true"></i> CLIMATE</strong></p>
-              <p>Greenhouse effect (g equivalent CO2)</p>
-            </div>
-            <div class="impact-detail-value">
-              <p><%= selection.item.calcul_climate_impact %> g</p>
-            </div>
-            <i class="fa fa-circle status <%= selection.item.color_climate %>" aria-hidden="true"></i>
+        <div class="first-line">
+          <div class="title-item">
+            <h2><%= selection.item.title %></h2>
+            <h3> - <%= selection.item.category %> by <%= selection.item.brand.name %></h3>
+            <%= link_to "Back on market place", selection.item.url, class: "market-place-btn" %>
           </div>
-          <div class="impact-detail">
-            <div class="impact-detail-description">
-              <p><strong><i class="fa fa-tint" aria-hidden="true"></i> WATER</strong></p>
-              <p>Eutrophication (g equivalent PO4)</p>
-            </div>
-            <div class="impact-detail-value">
-              <p><%= selection.item.calcul_climate_impact %> g</p>
-            </div>
-            <i class="fa fa-circle status <%= selection.item.color_water %>" aria-hidden="true"></i>
-          </div>
-          <div class="impact-detail">
-            <div class="impact-detail-description">
-              <p><strong><i class="fa fa-cloud" aria-hidden="true"></i> AIR</strong></p>
-              <p>Acidification (equivalent SO2)</p>
-            </div>
-            <div class="impact-detail-value">
-              <p><%= selection.item.calcul_climate_impact %> g</p>
-            </div>
-            <i class="fa fa-circle status <%= selection.item.color_air %>" aria-hidden="true"></i>
-          </div>
+          <%= link_to root_path, class:"cancel" do %>
+            <%= image_tag "cancel1.png" %>
+          <% end %>
         </div>
-        <p class="evaluation-rules"><em>Evaluated for the materials of 100g of product</em></p>
+        <div class="impact-description">
+          <section>
+            <div class="impact-detail">
+              <div class="impact-detail-description">
+                <p><strong><i class="fa fa-globe" aria-hidden="true"></i> CLIMATE</strong></p>
+                <div class="scores">
+                  <div class="arrow">
+                    <div class="arrow-status complete">
+                      <p><%= selection.item.calcul_climate_impact %> kg</p>
+                     <span class="arrow-pointer"></span>
+                    </div>
+                  </div>
+                  <i class="fa fa-circle status <%= selection.item.color_climate %>" aria-hidden="true"></i>
+                  </div>
+              </div>
+            </div>
+            <div class="impact-detail">
+              <div class="impact-detail-description">
+                <p><strong><i class="fa fa-tint" aria-hidden="true"></i> WATER</strong></p>
+                <div class="scores">
+                  <div class="arrow">
+                    <div class="arrow-status noob">
+                      <p><%= selection.item.calcul_water_impact %> g</p>
+                     <span class="arrow-pointer"></span>
+                    </div>
+                  </div>
+                  <i class="fa fa-circle status <%= selection.item.color_water %>" aria-hidden="true"></i>
+                  </div>
+              </div>
+            </div>
+            <div class="impact-detail">
+              <div class="impact-detail-description">
+                <p><strong><i class="fa fa-cloud" aria-hidden="true"></i> AIR</strong></p>
+                <div class="scores">
+                  <div class="arrow">
+                    <div class="arrow-status pro">
+                      <p><%= selection.item.calcul_air_impact %> mol</p>
+                     <span class="arrow-pointer"></span>
+                    </div>
+                  </div>
+                  <i class="fa fa-circle status <%= selection.item.color_air %>" aria-hidden="true"></i>
+                  </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
       </div>
     </div>
   <% end %>
+   <p class="evaluation-rules"><em>Evaluated for the materials of 100g of product</em></p>
 </div>
