@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   validates :title, :category, :price, :url, :photo, :gender, presence: true
   validates :product_code, uniqueness: true, presence: true
 
-  LIMIT = { climate: { min: 25, max: 40 }, water: { min: 25, max: 40 }, air: { min: 25, max: 40 } }.freeze
+  LIMIT = { climate: { min: 3.166, max: 5.276 }, water: { min: 0.061, max: 0.101 }, air: { min: 48.469, max: 80.781 } }.freeze
 
   def calcul_climate_impact
     self.assemblings.inject(0) do |memo, assembling|
