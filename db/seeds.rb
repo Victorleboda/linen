@@ -70,19 +70,19 @@ asos.save!
 puts "creating items"
 url1 = "http://www.asos.fr/pullbear/pullbear-pull-raye-coupe-longue/prd/8938640?clr=multi&SearchQuery=pull&gridcolumn=2&gridrow=6&gridsize=4&pge=1&pgesize=72&totalstyles=5769"
 photo1 = "http://images.asos-media.com/products/pullbear-pull-raye-coupe-longue/8938640-1-multi?$XXL$&wid=513&fit=constrain"
-item1 = Item.new(url: url1, photo: photo1, price: 39.45, category: "pull", product_code: "1191283", title: "Pull rayé coupe longue")
+item1 = Item.new(url: url1, photo: photo1, price: 39.45, category: "pull", product_code: "1191283", title: "Pull rayé coupe longue", gender: "Homme")
 item1.brand = pull_bear
 item1.save!
 
 url2 = "http://www.asos.fr/new-look/new-look-pull-color-block-noir-et-gris/prd/9080710?clr=motifnoir&SearchQuery=&cid=7617&gridcolumn=4&gridrow=7&gridsize=4&pge=1&pgesize=72&totalstyles=1172"
 photo2 = "http://images.asos-media.com/products/new-look-pull-color-block-noir-et-gris/9080710-1-blackpattern?$XXL$&wid=513&fit=constrain"
-item2 = Item.new(url: url2, photo: photo2, price: 23.99, category: "pull", product_code: "1210864", title: "Pull 2")
+item2 = Item.new(url: url2, photo: photo2, price: 23.99, category: "pull", product_code: "1210864", title: "Pull 2", gender: "Homme")
 item2.brand = new_look
 item2.save!
 
 url3 = "http://www.asos.fr/asos/asos-ultimate-pull-ras-de-cou-en-grosse-maille/prd/7667446?clr=avoinechin%C3%A9&SearchQuery=pull&gridcolumn=2&gridrow=8&gridsize=4&pge=1&pgesize=72&totalstyles=5972"
 photo3 = "http://images.asos-media.com/products/asos-ultimate-pull-ras-de-cou-en-grosse-maille/7667446-1-oatmealmarl?$XXL$&wid=513&fit=constrain"
-item3 = Item.new(url: url3, photo: photo3, price: 29.99, category: "pull", product_code: "1008623", title: "Ultimate - Pull ras de cou en grosse maille")
+item3 = Item.new(url: url3, photo: photo3, price: 29.99, category: "pull", product_code: "1008623", title: "Ultimate - Pull ras de cou en grosse maille", gender: "Femme")
 item3.brand = asos
 item3.save!
 
