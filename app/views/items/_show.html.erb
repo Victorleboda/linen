@@ -1,8 +1,13 @@
+<style type="text/css">
+  .item {
+    display: flex;
+    height: 400px;
+    width: 200px;
+  }
+
+</style>
+
 <div class="item">
-  <div class="item-image">
-    <%= image_tag item.photo, class: "item-image" %>
-    <%= link_to "", item.url, class: "item-photo-link" %>
-  </div>
   <div class="item-description">
     <h2><%= item.title %></h2>
     <div class="impact-description">
