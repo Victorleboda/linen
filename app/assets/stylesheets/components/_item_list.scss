@@ -40,7 +40,7 @@
 .market-place-btn {
   position: absolute;
   font-size: 14px;
-  top: 10px;
+  bottom: -13px;
   right: 20px;
   font-style: italic;
 }
@@ -107,3 +107,11 @@
     margin-top: 5px;
   }
 }
+.first-line {
+  display: flex;
+  justify-content: space-between;
+.cancel {
+  height: 15px;
+}
+}
+

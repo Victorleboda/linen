@@ -7,9 +7,15 @@
       </div>
 
       <div class="item-description">
-        <div class="title-item">
-          <h2><%= selection.item.title %></h2>
-          <h3> - <%= selection.item.category %> by <%= selection.item.brand.name %></h3>
+        <div class="first-line">
+          <div class="title-item">
+            <h2><%= selection.item.title %></h2>
+            <h3> - <%= selection.item.category %> by <%= selection.item.brand.name %></h3>
+            <%= link_to "Back on market place", selection.item.url, class: "market-place-btn" %>
+          </div>
+          <%= link_to root_path, class:"cancel" do %>
+            <%= image_tag "cancel1.png" %>
+          <% end %>
         </div>
         <div class="impact-description">
           <section>
@@ -32,12 +38,12 @@
                 <p><strong><i class="fa fa-tint" aria-hidden="true"></i> WATER</strong></p>
                 <div class="scores">
                   <div class="arrow">
-                    <div class="arrow-status complete">
-                      <p><%= selection.item.calcul_climate_impact %> g</p>
+                    <div class="arrow-status noob">
+                      <p><%= selection.item.calcul_water_impact %> g</p>
                      <span class="arrow-pointer"></span>
                     </div>
                   </div>
-                  <i class="fa fa-circle status <%= selection.item.color_climate %>" aria-hidden="true"></i>
+                  <i class="fa fa-circle status <%= selection.item.color_water %>" aria-hidden="true"></i>
                   </div>
               </div>
             </div>
@@ -46,20 +52,20 @@
                 <p><strong><i class="fa fa-cloud" aria-hidden="true"></i> AIR</strong></p>
                 <div class="scores">
                   <div class="arrow">
-                    <div class="arrow-status complete">
-                      <p><%= selection.item.calcul_climate_impact %> g</p>
+                    <div class="arrow-status pro">
+                      <p><%= selection.item.calcul_air_impact %> mol</p>
                      <span class="arrow-pointer"></span>
                     </div>
                   </div>
-                  <i class="fa fa-circle status <%= selection.item.color_climate %>" aria-hidden="true"></i>
+                  <i class="fa fa-circle status <%= selection.item.color_air %>" aria-hidden="true"></i>
                   </div>
               </div>
             </div>
           </section>
         </div>
-        <%= link_to "Back on market place", selection.item.url, class: "market-place-btn" %>
+
       </div>
     </div>
   <% end %>
-  <p class="evaluation-rules"><em>Evaluated for the materials of 100g of product</em></p>
+   <p class="evaluation-rules"><em>Evaluated for the materials of 100g of product</em></p>
 </div>
