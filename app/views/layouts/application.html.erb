@@ -6,7 +6,7 @@
     <meta charset=utf-8 />
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <link rel="icon" href="http://res.cloudinary.com/dkdgy3gn2/image/upload/v1512663798/icon_ievenh.png">
-    <title>Linen Chrome Extension - Get the best informations to guide your clothing purchases</title>
+    <title><%= yield(:title_tag).blank? ? "Linen Chrome Extension - Get the best informations to guide your clothing purchases" : yield(:title_tag) %></title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
