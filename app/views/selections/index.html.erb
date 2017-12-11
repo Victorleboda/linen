@@ -18,21 +18,27 @@
           <% end %>
         </div>
         <div class="impact-description">
+          <div class = "total-score <%= selection.item.color_climate %>">
+            <p> <%= selection.item.calcul_climate_impact %>/100</p>
+          </div>
           <section>
-            <div class="impact-detail">
-              <div class="impact-detail-description">
-                <p><strong><i class="fa fa-globe" aria-hidden="true"></i> CLIMATE</strong></p>
-                <div class="scores">
-                  <div class="arrow">
-                    <div class="arrow-status complete">
-                      <p><%= selection.item.calcul_climate_impact %> kg</p>
-                     <span class="arrow-pointer"></span>
-                    </div>
+            <div class="impact-detail-description">
+              <p><strong><i class="fa fa-globe" aria-hidden="true"></i> CLIMATE</strong></p>
+              <div class="scores">
+                <div class="arrow">
+                  <div class="arrow arrow-status <%= selection.item.color_climate %> " style="width: <%= (selection.item.calcul_climate_impact*100).to_i %>%">
+                    <p><%= selection.item.calcul_climate_impact %> kg</p>
+                   <span class="arrow-pointer"></span>
                   </div>
-                  <i class="fa fa-circle status <%= selection.item.color_climate %>" aria-hidden="true"></i>
-                  </div>
+                </div>
+                <div class = "score">
+                  <p> <%= selection.item.calcul_climate_impact %>/100</p>
+                </div>
               </div>
             </div>
+
+
+            <!-- a modifier -->
             <div class="impact-detail">
               <div class="impact-detail-description">
                 <p><strong><i class="fa fa-tint" aria-hidden="true"></i> WATER</strong></p>
@@ -43,8 +49,10 @@
                      <span class="arrow-pointer"></span>
                     </div>
                   </div>
-                  <i class="fa fa-circle status <%= selection.item.color_water %>" aria-hidden="true"></i>
+                  <div class = "score">
+                    <p> 25/100</p>
                   </div>
+                </div>
               </div>
             </div>
             <div class="impact-detail">
@@ -57,15 +65,16 @@
                      <span class="arrow-pointer"></span>
                     </div>
                   </div>
-                  <i class="fa fa-circle status <%= selection.item.color_air %>" aria-hidden="true"></i>
+                  <div class = "score">
+                    <p> 65/100</p>
                   </div>
+                </div>
               </div>
             </div>
           </section>
         </div>
-
       </div>
     </div>
   <% end %>
-   <p class="evaluation-rules"><em>Evaluated for the materials of 100g of product</em></p>
+  <p class="evaluation-rules"><em>Evaluated for the materials of 100g of product</em></p>
 </div>
