@@ -1,5 +1,8 @@
-.container h1 {
-  margin: 30px 0;
+.container {
+  width: 80%;
+  h1 {
+    margin: 30px 0;
+  }
 }
 .item {
   display: flex;
@@ -10,15 +13,7 @@
   margin: 15 20px;
   margin-top: 15px;
 }
-.item:first-child {
-  margin-top: 5px;
-}
-.item:last-child {
-  margin-bottom: 5px;
-}
-.item:last-child {
-  border-bottom: none;
-}
+
 .item-image {
   width: 200px;
   border-radius: 4px;
@@ -27,15 +22,15 @@
   flex-grow: 1;
   padding: 0px 20px;
   position: relative;
-}
-.item-description h2 {
-  font-size: 22px;
-  margin: 0;
-}
-.item-description h3 {
-  font-size: 20px;
-  margin: 0;
-  font-weight: bold;
+  h2 {
+    font-size: 22px;
+    margin: 0;
+  }
+  h3 {
+    font-size: 20px;
+    margin: 0;
+    font-weight: bold;
+  }
 }
 .market-place-btn {
   position: absolute;
@@ -46,53 +41,46 @@
 }
 
 .impact-description {
-  margin: 10px 0;
-}
-.impact-detail {
   display: flex;
   align-items: center;
+  margin: 10px 0;
+}
+
+.total-score{
+  margin-right: 20px;
+  flex: 0 0 15%;
+  background-color: #E44754;
+  height: 110px;
+  border-radius: 5px;
+  justify-content: center;
+  text-align: center;
+
+}
+.scores {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.score {
+  margin-left: 20px;
 }
 .impact-detail-description {
   font-size: 16px;
   flex-grow: 1;
-  // max-width: 500px;
   margin: 6px 0px;
-}
-.impact-detail-description p {
-  margin: 0;
+  p {
+    margin: 0;
+  }
 }
 .evaluation-rules {
   font-size: 13px;
   color: $linenblue;
   opacity: 0.7;
+  p {
+    margin: 0;
+  }
 }
-.impact-detail-value p {
-  margin: 0;
-}
-.status {
-  padding: 0 20px;
-  font-size: 14px;
-  font-weight: bold;
-}
-.good_impact {
-  color: #04A366;
-}
-.bad_impact {
-  color: red;
-}
-.normal_impact {
-  color: orange;
-}
-.item-photo-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
+
 .title-item {
   display: flex;
   justify-content: space-evently;
@@ -110,8 +98,7 @@
 .first-line {
   display: flex;
   justify-content: space-between;
-.cancel {
-  height: 15px;
+  .cancel {
+    height: 15px;
+  }
 }
-}
-

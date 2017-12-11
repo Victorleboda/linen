@@ -82,37 +82,37 @@
     <div class="ext-item-title">
       <h1><%= item.title %></h1>
       <h2><strong><%= item.category %></strong> by <strong><%= item.brand.name %></strong></h2>
-      <%= link_to "Add to my Linen list", id: "add-item-to-list" %>
+      <%= link_to "Add to my Linen list",  id: "add-item-to-list" %>
     </div>
   </div>
 
   <div class="ext-item-impact">
     <div class="ext-detail-impact">
       <img src="https://image.flaticon.com/icons/svg/44/44386.svg" alt="" class="impact-icons">
-      
+
       <p class="ext-impact-measure"><strong> CLIMATE: <%= item.calcul_climate_impact %> (kg éq. CO2)</strong> </p>
       <div class="carre good_impact"></div>
-      
+
     </div>
 
     <div class="ext-detail-impact">
       <img src="https://image.flaticon.com/icons/svg/67/67780.svg" alt="" class="impact-icons">
-      
+
       <p class="ext-impact-measure"><strong> WATER: <%= item.calcul_climate_impact %> (g éq. P)</strong></p>
       <div class="carre bad_impact"></div>
-      
+
     </div>
 
     <div class="ext-detail-impact">
       <img src="https://image.flaticon.com/icons/svg/34/34001.svg" alt="" class="impact-icons">
-     
+
       <p class="ext-impact-measure"><strong> AIR: <%= item.calcul_climate_impact %> (mol éq. H+)</strong></p>
       <div class="carre bad_impact"></div>
-      
+
     </div>
 
   </div>
-  <%= link_to "Go to my Linen list", id: "go-to-list" %>
+  <%= link_to "Go to my Linen list", selections_url, id: "go-to-list" %>
   <div class="ext-alternatives">
     <h3>OTHER OPTIONS</h3>
     <img src="https://image.flaticon.com/icons/svg/118/118738.svg" alt="" class="impact-icons">

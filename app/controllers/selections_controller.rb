@@ -10,7 +10,6 @@ class SelectionsController < ApplicationController
   end
 
   def create
-    raise
     @selection = Selection.new()
     @selection.user = current_user
     @selection.item = Item.find(selection_params)
