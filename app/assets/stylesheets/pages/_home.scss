@@ -8,7 +8,7 @@ h1 {
 }
 h1.homepage {
   color: white;
-  font-size: 55px;
+  font-size: 65px;
   font-weight: 600;
   margin: 20px 0;
 }
@@ -34,7 +34,7 @@ h2.homepage {
 .image-banner {
   display: flex;
   width: 100%;
-  height: calc(100vh - 140px);
+  height: calc(100vh - 50px);
   background-size: cover;
   background-position: center;
   align-items: center;
