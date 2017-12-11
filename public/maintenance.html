@@ -6,6 +6,10 @@
     <link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" />
     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+      <script src="https://cdn.statuspage.io/vendor/moment-timezone-with-data.js"></script>
+      <script src="https://cdn.statuspage.io/vendor/jstz.js"></script>
+      <script src="https://cdn.statuspage.io/vendor/localtimes.js"></script>
 
     <style>
      * {
@@ -274,7 +278,7 @@
 
     .background-image {
       background-color: #FFFFFF;
-      background-image: url(http://res.cloudinary.com/dkdgy3gn2/image/upload/v1512998553/background_llns0d.jpg) !important;
+      background-image: url(https://dka575ofm4ao0.cloudfront.net/assets/better_error_pages/templates/background/background-e1d28eee7cab6e890134c7271be33d66.png) !important;
     }
 
     .primary-text-color {
@@ -317,21 +321,18 @@
     <center>
   <div class="content-container shadow">
     <div class="head-line secondary-text-color">
-      422
+      Maintenance
     </div>
     <div class="subheader primary-text-color">
-      The change you wanted was rejected.
+      We're undergoing a bit of
+      scheduled maintenance.
     </div>
     <div class="hr"></div>
+    <div class="clearfix"></div>
     <div class="context secondary-text-color">
-      <p>
-        Maybe you tried to change something you didn't have access to.
-        If you are the application owner, check the logs for more informations.
-      </p>
-    </div>
-    <div class="buttons-container">
-      <a class="button" href="http://www.linenapp.eu/" target="_blank"><span class="fa fa-home"></span> Go To Homepage</a>
-      <a class="button" href="mailto:contact@linenapp.eu" target="_blank"><span class="fa fa-warning"></span> Report A Problem</a>
+
+    <p>Sorry for the inconvenience. We'll be back up and running as fast as possible.</p>
+
     </div>
   </div>
 </center>
@@ -417,7 +418,7 @@
 
      ErrorPage.prototype.fetchStatus = function (pageUrl, pageType) {
        //console.log('in app.js fetch');
-       if (!pageUrl || !pageType || pageType == '422') return;
+       if (!pageUrl || !pageType || pageType == '404') return;
 
        var url = ''
          , self = this;
@@ -441,7 +442,7 @@
        });
 
      };
-     var ep = new ErrorPage('body', "422", "background");
+     var ep = new ErrorPage('body', "maintenance", "background");
      ep.initialize();
 
      // hack to make sure content stays centered >_<
