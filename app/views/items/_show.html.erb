@@ -1,32 +1,45 @@
-<div class="item-evaluation">
-  <div class="general-mark">
-    <!-- put the proper value -->
-    <h1 class="big-mark">76</h1>
-    <p class="rating">/ 100</p>
+<% if @item.calcul_air_impact.nil? || @item.calcul_climate_impact.nil? || @item.calcul_water_impact.nil? %>
+  <div>
+    <p>Lack of data for this item</p>
   </div>
-  <div class="detail-info">
-    <!-- put the proper value -->
-    <h2><strong><%= item.category %></strong> by <strong><%= item.brand.name %></strong></h2>
-    <div class="impact-info-block">
-      <div class="impact-info">
-        <h3>CLIMATE</h3>
-        <!-- put the proper value -->
-        <p>5 / 100</p>
-      </div>
-      <div class="impact-info">
-        <h3>WATER</h3>
-        <!-- put the proper value -->
-        <p>5 / 100</p>
-      </div>
-      <div class="impact-info">
-        <h3>AIR</h3>
-        <!-- put the proper value -->
-        <p>5 / 100</p>
-      </div>
+<% else %>
+  <h2 class="alternative-title">ABOUT THIS PRODUCT</h2>
+  <div class="item-evaluation">
+    <div class="general-mark">
+      <!-- put the proper value -->
+      <h1 class="big-mark">76</h1>
+      <p class="rating">/ 100</p>
     </div>
-    <a href="<%= selections_url %>" id="add-item-to-list"><strong>+</strong> Add to my list</a>
+    <div class="detail-info">
+      <!-- put the proper value -->
+      <h2><strong><%= item.category %></strong> by <strong><%= item.brand.name %></strong></h2>
+      <div class="impact-info-block">
+        <div class="impact-info">
+          <h3>CLIMATE</h3>
+          <!-- put the proper value -->
+          <p>5 / 100</p>
+        </div>
+        <div class="impact-info">
+          <h3>WATER</h3>
+          <!-- put the proper value -->
+          <p>5 / 100</p>
+        </div>
+        <div class="impact-info">
+          <h3>AIR</h3>
+          <!-- put the proper value -->
+          <p>5 / 100</p>
+        </div>
+      </div>
+      <% if @item.selections.find_by(user: current_user).nil? %>
+        <%= link_to "#", id: "add-item-to-list", data: { value: @item.id } do %>
+          <strong>+</strong> Add to my list
+        <% end %>
+      <% else %>
+        <p><em>This product is already in your selection !</em></p>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
 
 <% unless @item.alternatives.first.nil? %>
   <h2 class="alternative-title">OTHER OPTIONS</h2>
@@ -42,11 +55,12 @@
           </div>
           <div class="detail-info">
             <!-- put the proper value -->
-            <h1><%= @item.alternatives.first.title %></h1>
-            <h2><strong><%= @item.alternatives.first.category %></strong> by <strong><%= @item.alternatives.first.brand.name %></strong></h2>
+            <h2><strong><%= alternative.category %></strong> by <strong><%= alternative.brand.name %></strong></h2>
+            <p><%= alternative.title %></p>
           </div>
           <!-- put the alternative photo -->
-          <%= image_tag @item.alternatives.first.photo, class: "alternative-photo" %>
+          <%= image_tag alternative.photo, class: "alternative-photo" %>
+          <a class="alternative-link" href="<%= alternative.url %>" ></a>
         </div>
       </div>
     <% end %>
@@ -56,3 +70,4 @@
 <div class="extension-btn">
   <a href="<%= selections_url %>" id="go-to-list">See my Linen List !</a>
 </div>
+

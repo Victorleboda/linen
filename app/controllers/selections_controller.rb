@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class SelectionsController < ApplicationController
+  # skip_before_action :authenticate_user!, only: :create
+  skip_before_action :verify_authenticity_token, only: :create
+
   def index
     @selections = Selection.where(user: current_user)
     @items = []
@@ -12,12 +15,8 @@ class SelectionsController < ApplicationController
   def create
     @selection = Selection.new()
     @selection.user = current_user
-    @selection.item = Item.find(selection_params)
+    @selection.item = Item.find(params[:item_id])
+    @selection.save
   end
 
-  private
-
-  def selection_params
-   params.require(:selection).permit(:item_id)
-  end
 end
