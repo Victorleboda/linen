@@ -35,7 +35,6 @@
     <% @item.alternatives.each do |alternative| %>
       <div>
         <div class="item-evaluation alternative-evaluation">
-          <img src="https://image.flaticon.com/icons/svg/126/126492.svg" alt="" class="icons-alternatives" id="previous-arrow">
           <div class="general-mark alternative-mark">
             <!-- put the proper value -->
             <h1 class="big-mark alternative-big-mark">10</h1>
@@ -48,7 +47,6 @@
           </div>
           <!-- put the alternative photo -->
           <%= image_tag @item.alternatives.first.photo, class: "alternative-photo" %>
-          <img src="https://image.flaticon.com/icons/svg/126/126490.svg" alt="" class="icons-alternatives" id="next-arrow">
         </div>
       </div>
     <% end %>
