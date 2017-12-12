@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207193504) do
+ActiveRecord::Schema.define(version: 20171212142040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(version: 20171207193504) do
     t.float "air_impact"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "climate_notation"
+    t.integer "air_notation"
+    t.integer "water_notation"
   end
 
   create_table "selections", force: :cascade do |t|
