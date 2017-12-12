@@ -7,16 +7,19 @@
     <% @selections.reverse_each do |selection| %>
       <div class="item" data-selection-id="<%= selection.id %>">
         <div class="item-image">
-          <%= image_tag selection.item.photo, class: "item-image" %>
+          <%= link_to selection.item.url, target: "_blank" do %>
+            <%= image_tag selection.item.photo, class: "item-image" %>
+          <% end %>
         </div>
 
         <div class="item-description">
           <div class="first-line">
             <div class="title-item">
-              <h2><%= selection.item.title %></h2>
-              <h3> - <%= selection.item.category %> by <%= selection.item.brand.name %></h3>
-              <%= link_to "Back on market place", selection.item.url, class: "market-place-btn" %>
-              <p><%= selection.item.price %>€</p>
+              <%= link_to selection.item.url, target: "_blank" do %>
+                <h2><%= selection.item.title %></h2>
+                <h2> - <%= selection.item.category %> by <%= selection.item.brand.name %></h2>
+                <h2> - <%= selection.item.price %>€</h2>
+              <% end %>
             </div>
             <%= link_to selection_path(selection), method: :delete, class:"cancel", remote: true do %>
               <i class="fa fa-times" aria-hidden="true"></i>
@@ -24,8 +27,8 @@
           </div>
 
           <div class="impact-description">
-            <div class="total-score <%= selection.item.color_climate %>">
-              <h1 > <%= (selection.item.calcul_climate_impact).to_i %> </h1>
+            <div class="total-score <%= selection.item.color_total %>">
+              <h1 > <%= (selection.item.total_impact).to_i %> </h1>
               <p>/ 100</p>
             </div>
             <section>
@@ -113,6 +116,6 @@
         </div>
       </div>
     <% end %>
-    <p class="evaluation-rules"><em>Evaluated for the materials of 100g of product</em></p>
+    <p class="evaluation-rules"><em>Each material is evaluated on a 100g of product</em></p>
   </div>
 </div>
