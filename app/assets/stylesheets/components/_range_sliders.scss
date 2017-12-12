@@ -2,7 +2,7 @@ section, div {
   box-sizing: border-box;
 }
 section {
-  flex: 0 0 auto;
+  flex: 1 0 auto;
   width: 80%;
 }
 .arrow {
@@ -11,6 +11,8 @@ section {
   border: 1px solid rgba(220,224,244,0.4);
   height: 2em;
   border-radius: 20px;
+  display: flex;
+  align-items: center;
 }
 .arrow-status {
   text-align: right;
@@ -37,20 +39,6 @@ section {
   margin-left: -2em;
   margin-bottom: -2em;
   border-radius: 0 5px 5px 0;
-}
-
-.complete {
-  width: 90%;
-  border-radius: 20px;
-}
-.bad_impact {
-  background-color: red;
-}
-.normal_impact {
-  background-color: orange;
-}
-.good_impact {
-  background-color: green;
 }
 
 @-webkit-keyframes width {
