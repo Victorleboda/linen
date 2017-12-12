@@ -1,0 +1,12 @@
+.selections {
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftNavContainer{
+  flex: 0 0 300px;
+  background-color: white;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  height: calc(100vh - 50px);
+
+}
