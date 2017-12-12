@@ -7,20 +7,22 @@ class Item < ApplicationRecord
   validates :title, :category, :price, :url, :photo, :gender, presence: true
   validates :product_code, uniqueness: true, presence: true
 
-  LIMIT = { climate: { min: 3.166, max: 5.276 }, water: { min: 0.061, max: 0.101 }, air: { min: 48.469, max: 80.781 } }.freeze
+  LIMIT = { climate: { min: 45, max: 75 }, water: { min: 45, max: 75 }, air: { min: 45, max: 75 } }.freeze
 
   def calcul_climate_impact
-    self.assemblings.inject(0) do |memo, assembling|
-      return nil if assembling.material.climate_impact.nil?
-      memo.to_i + (assembling.percent * 0.01 * assembling.material.climate_impact)
+    item_climate_impact = 0
+    self.assemblings.each do |assembling|
+      return nil if assembling.material.climate_notation.nil?
+      item_climate_impact += (assembling.percent * 0.01 * assembling.material.climate_notation)
     end
+    return item_climate_impact
   end
 
   def calcul_water_impact
     item_water_impact = 0
     self.assemblings.each do |assembling|
-      return nil if assembling.material.water_impact.nil?
-      item_water_impact += (assembling.percent * 0.01 * assembling.material.water_impact)
+      return nil if assembling.material.water_notation.nil?
+      item_water_impact += (assembling.percent * 0.01 * assembling.material.water_notation)
     end
     return item_water_impact
   end
@@ -28,19 +30,47 @@ class Item < ApplicationRecord
   def calcul_air_impact
     item_air_impact = 0
     self.assemblings.each do |assembling|
-      return nil if assembling.material.air_impact.nil?
-      item_air_impact += (assembling.percent * 0.01 * assembling.material.air_impact)
+      return nil if assembling.material.air_notation.nil?
+      item_air_impact += (assembling.percent * 0.01 * assembling.material.air_notation)
     end
     return item_air_impact
+  end
+
+
+  def calcul_climate
+    item_climate = 0
+    self.assemblings.each do |assembling|
+      return nil if assembling.material.climate_impact.nil?
+      item_climate += (assembling.percent * 0.01 * assembling.material.climate_impact)
+    end
+    return item_climate
+  end
+
+  def calcul_water
+    item_water = 0
+    self.assemblings.each do |assembling|
+      return nil if assembling.material.water_impact.nil?
+      item_water += (assembling.percent * 0.01 * assembling.material.water_impact)
+    end
+    return item_water
+  end
+
+  def calcul_air
+    item_air = 0
+    self.assemblings.each do |assembling|
+      return nil if assembling.material.air_impact.nil?
+      item_air += (assembling.percent * 0.01 * assembling.material.air_impact)
+    end
+    return item_air
   end
 
   def color_climate
     if calcul_climate_impact.nil?
       "climate not evaluated yet"
     elsif calcul_climate_impact > LIMIT[:climate][:max]
-      'bad_impact'
-    elsif calcul_climate_impact < LIMIT[:climate][:min]
       'good_impact'
+    elsif calcul_climate_impact < LIMIT[:climate][:min]
+      'bad_impact'
     else
       'normal_impact'
     end
@@ -50,9 +80,9 @@ class Item < ApplicationRecord
     if calcul_water_impact.nil?
       "water not evaluated yet"
     elsif calcul_water_impact > LIMIT[:water][:max]
-      'bad_impact'
-    elsif calcul_water_impact < LIMIT[:water][:min]
       'good_impact'
+    elsif calcul_water_impact < LIMIT[:water][:min]
+      'bad_impact'
     else
       'normal_impact'
     end
@@ -62,9 +92,9 @@ class Item < ApplicationRecord
     if calcul_air_impact.nil?
       "air not evaluated yet"
     elsif calcul_air_impact > LIMIT[:air][:max]
-      'bad_impact'
-    elsif calcul_air_impact < LIMIT[:air][:min]
       'good_impact'
+    elsif calcul_air_impact < LIMIT[:air][:min]
+      'bad_impact'
     else
       'normal_impact'
     end
