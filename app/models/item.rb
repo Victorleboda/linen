@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   validates :title, :category, :price, :url, :photo, :gender, presence: true
   validates :product_code, uniqueness: true, presence: true
 
-  LIMIT = { climate: { min: 45, max: 75 }, water: { min: 45, max: 75 }, air: { min: 45, max: 75 } }.freeze
+  LIMIT = { climate: { min: 25, max: 50 }, water: { min: 25, max: 50 }, air: { min: 25, max: 50 } }.freeze
 
   def calcul_climate_impact
     item_climate_impact = 0
@@ -36,6 +36,9 @@ class Item < ApplicationRecord
     return item_air_impact
   end
 
+  def total_impact
+    return item_total_impact = (calcul_climate_impact + calcul_water_impact + calcul_air_impact)/3
+  end
 
   def calcul_climate
     item_climate = 0
@@ -62,6 +65,17 @@ class Item < ApplicationRecord
       item_air += (assembling.percent * 0.01 * assembling.material.air_impact)
     end
     return item_air
+  end
+  def color_total
+    if total_impact.nil?
+      "Total not evaluated yet"
+    elsif total_impact > LIMIT[:climate][:max]
+      'good_impact'
+    elsif total_impact < LIMIT[:climate][:min]
+      'bad_impact'
+    else
+      'normal_impact'
+    end
   end
 
   def color_climate
@@ -104,9 +118,9 @@ class Item < ApplicationRecord
     alternative_items = []
     category_items = Item.where(category: self.category).where(gender: self.gender).where.not(id: self.id)
     category_items.each do |category_item|
-      if (category_item.color_water == "good_impact") && (category_item.color_air == "good_impact") && (category_item.color_climate == "good_impact")
+      # if (category_item.color_water == "good_impact") && (category_item.color_air == "good_impact") && (category_item.color_climate == "good_impact")
         alternative_items << category_item
-      end
+      # end
     end
     return alternative_items
   end
