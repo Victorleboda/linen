@@ -1,32 +1,27 @@
-<%# if @item.calcul_air_impact.nil? || @item.calcul_climate_impact.nil? || @item.calcul_water_impact.nil? %>
-<!--   <div>
+<% if @item.calcul_air_impact.nil? || @item.calcul_climate_impact.nil? || @item.calcul_water_impact.nil? %>
+  <div>
     <p>Lack of data for this item</p>
-  </div> -->
-<%# else %>
+  </div>
+<% else %>
   <h2 class="alternative-title">ABOUT THIS PRODUCT</h2>
   <div class="item-evaluation">
     <div class="general-mark <%= item.color_total %>">
-      <!-- put the proper value -->
       <h1 class="big-mark"><%= (item.total_impact).to_i %> </h1>
       <p class="rating">/ 100</p>
     </div>
     <div class="detail-info">
-      <!-- put the proper value -->
       <h2><strong><%= item.category %></strong> by <strong><%= item.brand.name %></strong></h2>
       <div class="impact-info-block">
         <div class="impact-info">
           <h3>CLIMATE</h3>
-          <!-- put the proper value -->
           <p><%= (item.calcul_climate_impact).to_i %> / 100</p>
         </div>
         <div class="impact-info">
           <h3>WATER</h3>
-          <!-- put the proper value -->
           <p><%= (item.calcul_water_impact).to_i %> / 100</p>
         </div>
         <div class="impact-info">
           <h3>AIR</h3>
-          <!-- put the proper value -->
           <p><%= (item.calcul_air_impact).to_i %> / 100</p>
         </div>
       </div>
@@ -39,7 +34,7 @@
       <% end %>
     </div>
   </div>
-<%# end %>
+<% end %>
 
 <% unless @item.alternatives.first.nil? %>
   <h2 class="alternative-title">OTHER OPTIONS</h2>
@@ -49,16 +44,13 @@
       <div>
         <div class="item-evaluation alternative-evaluation">
           <div class="general-mark alternative-mark <%= alternative.color_total %>">
-            <!-- put the proper value -->
             <h1 class="big-mark alternative-big-mark"><%=(alternative.total_impact).to_i %> </h1>
             <p class="rating">/ 100</p>
           </div>
           <div class="detail-info">
-            <!-- put the proper value -->
             <h2><strong><%= alternative.category %></strong> by <strong><%= alternative.brand.name %></strong></h2>
             <p><%= alternative.title %></p>
           </div>
-          <!-- put the alternative photo -->
           <%= image_tag alternative.photo, class: "alternative-photo" %>
           <a class="alternative-link" href="<%= alternative.url %>" ></a>
         </div>
