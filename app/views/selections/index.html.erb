@@ -1,112 +1,34 @@
 <div class="selections">
-  <div class="leftNavContainer">
-
-  </div>
-  <div class="container-selections">
-    <h1>Your selection</h1>
-    <% @selections.reverse_each do |selection| %>
-      <div class="item" data-selection-id="<%= selection.id %>">
-        <div class="item-image">
-          <%= image_tag selection.item.photo, class: "item-image" %>
-        </div>
-
-        <div class="item-description">
-          <div class="first-line">
-            <div class="title-item">
-              <h2><%= selection.item.title %></h2>
-              <h3> - <%= selection.item.category %> by <%= selection.item.brand.name %></h3>
-              <%= link_to "Back on market place", selection.item.url, class: "market-place-btn" %>
-              <p><%= selection.item.price %>€</p>
+  <div class="left-nav-container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+        <div class="form-post">
+          <h2>Find in your selection</h2>
+          <%= form_tag("/selections", method: 'get', remote: true, class: "form-stuff" ) do %>
+            <div class="form-group">
+              <label class="control-label check_boxes optional">Categories</label>
+              <input type="hidden" name="item[category_ids][]" value="">
+              <div class="category-choices">
+                <% @categories.each do |category| %>
+                  <input type="checkbox" class="hidden" name="item[<%= category %>]" id="<%= category %>">
+                  <label for="<%= category %>" class="category-choice"><%= category %> <i class="fa fa-check"></i></label>
+                <% end %>
+              </div>
             </div>
-            <%= link_to selection_path(selection), method: :delete, class:"cancel", remote: true do %>
-              <i class="fa fa-times" aria-hidden="true"></i>
-            <% end %>
-          </div>
-
-          <div class="impact-description">
-            <div class="total-score <%= selection.item.color_climate %>">
-              <h1 > <%= (selection.item.calcul_climate_impact).to_i %> </h1>
-              <p>/ 100</p>
-            </div>
-            <section>
-              <div class="impact-detail-description">
-                <p><strong><i class="fa fa-globe" aria-hidden="true"></i> CLIMATE</strong></p>
-                <div class="scores">
-
-                  <% if selection.item.calcul_climate_impact > 10 %>
-                    <div class="arrow">
-                      <div class="arrow arrow-status <%= selection.item.color_climate %> " style="width: <%= (selection.item.calcul_climate_impact).to_i %>%">
-                        <p><%= selection.item.calcul_climate %> kg</p>
-                       <span class="arrow-pointer"></span>
-                      </div>
-                    </div>
-                  <% else %>
-                    <div class="arrow">
-                      <div class="arrow arrow-status <%= selection.item.color_climate %> " style="width: <%= (selection.item.calcul_climate_impact).to_i %>%">
-                       <span class="arrow-pointer"></span>
-                      </div>
-                      <p style="margin-left: 5px;"><%= selection.item.calcul_climate %> kg</p>
-                    </div>
-                  <% end %>
-
-                  <div class = "score">
-                    <p> <%= (selection.item.calcul_climate_impact).round %>/100</p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="impact-detail-description">
-                <p><strong><i class="fa fa-tint" aria-hidden="true"></i> WATER </strong></p>
-                <div class="scores">
-                  <% if selection.item.calcul_water_impact > 10 %>
-                    <div class="arrow">
-                      <div class="arrow arrow-status <%= selection.item.color_water %> " style="width: <%= (selection.item.calcul_water_impact).to_i %>%">
-                        <p><%= (selection.item.calcul_water).round(2) %> g éq. P</p>
-                       <span class="arrow-pointer"></span>
-                      </div>
-                    </div>
-                  <% else %>
-                    <div class="arrow">
-                      <div class="arrow arrow-status <%= selection.item.color_water %> " style="width: <%= (selection.item.calcul_water_impact).to_i %>%">
-                       <span class="arrow-pointer"></span>
-                      </div>
-                      <p style="margin-left: 5px;"><%= (selection.item.calcul_water_impact).round(2) %> g éq. P</p>
-                    </div>
-                  <% end %>
-                  <div class = "score">
-                    <p> <%= (selection.item.calcul_water_impact).round %>/100</p>
-                  </div>
-                </div>
-              </div>
-              <div class="impact-detail-description">
-                <p><strong><i class="fa fa-cloud" aria-hidden="true"></i> AIR </strong></p>
-                <div class="scores">
-                  <% if selection.item.calcul_climate_impact > 10 %>
-                    <div class="arrow">
-                      <div class="arrow arrow-status <%= selection.item.color_air %> " style="width: <%= (selection.item.calcul_air_impact).to_i %>%">
-                        <p><%= (selection.item.calcul_air).round(2) %> mol éq. H+</p>
-                       <span class="arrow-pointer"></span>
-                      </div>
-                    </div>
-                  <% else %>
-                    <div class="arrow">
-                      <div class="arrow arrow-status <%= selection.item.color_air %> " style="width: <%= (selection.item.calcul_air_impact).to_i %>%">
-                       <span class="arrow-pointer"></span>
-                      </div>
-                      <p style="margin-left: 5px;"><%= selection.item.calcul_air_impact %> mol éq. H+</p>
-                    </div>
-                  <% end %>
-
-                  <div class = "score">
-                    <p> <%= (selection.item.calcul_air_impact).round %>/100</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
+            <input type="submit" class="btn btn-primary" value="Reload"></input>
+          <% end %>
         </div>
       </div>
-    <% end %>
+    </div>
+  </div>
+
+  <div class="container-selections">
+    <!-- <h1>Your selection</h1> -->
+    <div id="all_items">
+      <% @selections.reverse_each do |selection| %>
+        <%= render 'selections/item_card', selection: selection %>
+      <% end %>
+    </div>
     <p class="evaluation-rules"><em>Evaluated for the materials of 100g of product</em></p>
   </div>
 </div>

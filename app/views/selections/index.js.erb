@@ -1,0 +1,6 @@
+var cards = document.querySelector("#all_items")
+cards.innerHTML = ""
+
+<% @items.each do |item| %>
+  cards.insertAdjacentHTML("beforeend", "<%= j render 'selections/item_card', selection: selection %>")
+<% end %>
