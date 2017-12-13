@@ -1,8 +1,8 @@
-<%# if @item.calcul_air_impact.nil? || @item.calcul_climate_impact.nil? || @item.calcul_water_impact.nil? %>
-<!--   <div>
+<% if @item.calcul_air_impact.nil? || @item.calcul_climate_impact.nil? || @item.calcul_water_impact.nil? %>
+  <div>
     <p>Lack of data for this item</p>
-  </div> -->
-<%# else %>
+  </div>
+<% else %>
   <h2 class="alternative-title">ABOUT THIS PRODUCT</h2>
   <div class="item-evaluation">
     <div class="general-mark <%= item.color_total %>">
@@ -39,7 +39,7 @@
       <% end %>
     </div>
   </div>
-<%# end %>
+<% end %>
 
 <% unless @item.alternatives.first.nil? %>
   <h2 class="alternative-title">OTHER OPTIONS</h2>

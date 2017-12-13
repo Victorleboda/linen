@@ -4,7 +4,7 @@ function filter() {
   if (inputs){
     inputs.forEach(input => {
       input.addEventListener('change', () => {
-          document.querySelector('.form-stuff input[type="submit"]').click()
+        document.querySelector('.form-stuff input[type="submit"]').click()
       });
     });
   }

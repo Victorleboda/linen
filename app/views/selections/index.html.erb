@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-sm-offset-1">
         <div class="form-post">
-          <h2>Find in your selection</h2>
-          <%= form_tag("/selections", method: 'get', class: "form-stuff" ) do %>
+          <h2>Find in your selection by</h2>
+          <%= form_tag("/selections", method: 'get', class: "form-stuff", remote: true) do %>
             <div class="form-group">
               <label class="control-label check_boxes optional">Categories</label>
               <div class="category-choices">
@@ -14,7 +14,7 @@
                 <% end %>
               </div>
             </div>
-            <input type="submit" class="btn btn-primary" value="Reload"></input>
+            <input type="submit" class="hidden" value="Reload"></input>
           <% end %>
         </div>
       </div>
@@ -27,6 +27,6 @@
         <%= render 'selections/item_card', selection: selection %>
       <% end %>
     </div>
-    <p class="evaluation-rules"><em>Each material is evaluated on a 100g of product</em></p>
+    <p class="evaluation-rules"><em>Each material is evaluated on a 100g basis</em></p>
   </div>
 </div>
