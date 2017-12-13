@@ -4,10 +4,9 @@
       <div class="col-xs-12 col-sm-10 col-sm-offset-1">
         <div class="form-post">
           <h2>Find in your selection</h2>
-          <%= form_tag("/selections", method: 'get', class: "form-stuff" ) do %> <!-- remote: true, -->
+          <%= form_tag("/selections", method: 'get', class: "form-stuff" ) do %>
             <div class="form-group">
               <label class="control-label check_boxes optional">Categories</label>
-              <!-- <input type="hidden" name="item[category_ids][]" value=""> -->
               <div class="category-choices">
                 <% @categories.each do |category| %>
                   <input type="checkbox" class="hidden" name="item[<%= category %>]" id="<%= category %>">
@@ -23,14 +22,11 @@
   </div>
 
   <div class="container-selections">
-    <!-- <h1>Your selection</h1> -->
     <div id="all_items">
       <% @selections.reverse_each do |selection| %>
         <%= render 'selections/item_card', selection: selection %>
       <% end %>
     </div>
-    <p class="evaluation-rules"><em>Evaluated for the materials of 100g of product</em></p>
-    <% end %>
     <p class="evaluation-rules"><em>Each material is evaluated on a 100g of product</em></p>
   </div>
 </div>
