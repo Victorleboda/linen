@@ -3,7 +3,7 @@
     <p>Lack of data for this item</p>
   </div>
 <% else %>
-  <h2 class="alternative-title">ABOUT THIS PRODUCT</h2>
+  <h1 class="alternative-title">ABOUT THIS PRODUCT</h1>
   <div class="item-evaluation">
     <div class="general-mark <%= item.color_total %>">
       <h1 class="big-mark"><%= (item.total_impact).to_i %> </h1>
@@ -13,15 +13,15 @@
       <h2><strong><%= item.category %></strong> by <strong><%= item.brand.name %></strong></h2>
       <div class="impact-info-block">
         <div class="impact-info">
-          <h3>CLIMATE</h3>
+          <p><strong>CLIMATE</strong></p>
           <p><%= (item.calcul_climate_impact).to_i %> / 100</p>
         </div>
         <div class="impact-info">
-          <h3>WATER</h3>
+          <p><strong>WATER</strong></p>
           <p><%= (item.calcul_water_impact).to_i %> / 100</p>
         </div>
         <div class="impact-info">
-          <h3>AIR</h3>
+          <p><strong>AIR</strong></p>
           <p><%= (item.calcul_air_impact).to_i %> / 100</p>
         </div>
       </div>
@@ -37,7 +37,7 @@
 <% end %>
 
 <% unless @item.alternatives.first.nil? %>
-  <h2 class="alternative-title">OTHER OPTIONS</h2>
+  <h1 class="alternative-title">OTHER OPTIONS</h1>
 
   <div class="my-slider">
     <% @item.alternatives.each do |alternative| %>
@@ -49,7 +49,7 @@
           </div>
           <div class="detail-info">
             <h2><strong><%= alternative.category %></strong> by <strong><%= alternative.brand.name %></strong></h2>
-            <p><%= alternative.title %></p>
+            <h3><%= alternative.title %></h3>
           </div>
           <%= image_tag alternative.photo, class: "alternative-photo" %>
           <a class="alternative-link" href="<%= alternative.url %>" ></a>
