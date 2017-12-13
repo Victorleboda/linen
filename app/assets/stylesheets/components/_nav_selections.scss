@@ -27,7 +27,9 @@
 }
 
 .category-choice {
-  background: #b7b7b7;
+  display: flex;
+  justify-content: space-between;
+  background: $linenblue;
   padding: 20px;
   border-radius: 5px;
   opacity: .4;

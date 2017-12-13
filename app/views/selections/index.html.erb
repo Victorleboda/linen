@@ -10,7 +10,7 @@
               <div class="category-choices">
                 <% @categories.each do |category| %>
                   <input type="checkbox" class="hidden" name="item[<%= category %>]" id="<%= category %>">
-                  <label for="<%= category %>" class="category-choice"><%= category %> <i class="fa fa-check"></i></label>
+                  <label for="<%= category %>" class="category-choice"><%= category.capitalize %> <i class="fa fa-check"></i></label>
                 <% end %>
               </div>
             </div>
