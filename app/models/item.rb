@@ -37,7 +37,11 @@ class Item < ApplicationRecord
   end
 
   def total_impact
-    return item_total_impact = (calcul_climate_impact + calcul_water_impact + calcul_air_impact)/3
+    item_total_impact = 0
+    if calcul_climate_impact.nil? || calcul_air_impact.nil? || calcul_water_impact.nil?
+      return item_total_impact
+    end
+      return item_total_impact = (calcul_climate_impact + calcul_water_impact + calcul_air_impact)/3
   end
 
   def calcul_climate
