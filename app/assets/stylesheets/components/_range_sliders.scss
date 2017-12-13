@@ -23,11 +23,12 @@ section {
   color: white;
   height: 100%;
   line-height: 1.2em;
+  min-width: 9%;
   -webkit-animation: width .5s ease-in;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  }
+}
 .arrow-pointer2 {
   background-color: white;
   display: inline-block;
@@ -42,5 +43,5 @@ section {
 }
 
 @-webkit-keyframes width {
-    from { width: 0%; }
+  from { width: 0%; }
 }
