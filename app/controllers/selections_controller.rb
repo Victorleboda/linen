@@ -6,12 +6,17 @@ class SelectionsController < ApplicationController
   before_action :set_selection, only: [:destroy]
 
   def index
-    @selections = Selection.where(user: current_user)
-    @items = current_user.items
-    # raise
+    @selection_pool = Selection.joins(:item).where(user: current_user)
+    # @items = current_user.items
     @categories = Item.pluck(:category).uniq
-    @items = @items.where(category: params[:item].keys) if params[:item].present?
-
+    # @items = @items.where(category: params[:item].keys) if params[:item].present?
+    @selections = @selection_pool
+    if params[:item].present?
+      terms = params[:item].keys
+      @selections = terms.map do |term|
+        @selection_pool.where('items.category = :query', query: term)
+      end.reduce(:|)
+    end
     respond_to do |format|
       format.html # render selections/index.html.erb
       format.js # render selections/index.js.erb
