@@ -4,10 +4,12 @@ var sliders = [volumeSlider, scrubberSlider];
 
 function Slider(slider) {
   this.slider = slider;
-  slider.addEventListener('input', function() {
-    this.updateSliderOutput();
-    this.updateSliderLevel();
-  }.bind(this), false);
+  if (slider) {
+    slider.addEventListener('input', function() {
+      this.updateSliderOutput();
+      this.updateSliderLevel();
+    }.bind(this), false);
+  }
 
   this.level = function() {
     var level = this.slider.querySelector('.slider-input');

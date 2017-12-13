@@ -4,10 +4,10 @@
       <div class="col-xs-12 col-sm-10 col-sm-offset-1">
         <div class="form-post">
           <h2>Find in your selection</h2>
-          <%= form_tag("/selections", method: 'get', remote: true, class: "form-stuff" ) do %>
+          <%= form_tag("/selections", method: 'get', class: "form-stuff" ) do %> <!-- remote: true, -->
             <div class="form-group">
               <label class="control-label check_boxes optional">Categories</label>
-              <input type="hidden" name="item[category_ids][]" value="">
+              <!-- <input type="hidden" name="item[category_ids][]" value=""> -->
               <div class="category-choices">
                 <% @categories.each do |category| %>
                   <input type="checkbox" class="hidden" name="item[<%= category %>]" id="<%= category %>">

@@ -8,19 +8,10 @@ class SelectionsController < ApplicationController
   def index
     @selections = Selection.where(user: current_user)
     @items = current_user.items
+    # raise
     @categories = Item.pluck(:category).uniq
-
     @items = @items.where(category: params[:item].keys) if params[:item].present?
 
-    # if params[:item].present?
-    #   items_with_filters = []
-    #   @items.each do |element|
-    #     if params[:item].keys.include?(element.category)
-    #       items_with_filters << element
-    #     end
-    #   end
-    #   @items = items_with_filters
-    # end
     respond_to do |format|
       format.html # render selections/index.html.erb
       format.js # render selections/index.js.erb
