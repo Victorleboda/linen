@@ -3,6 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   categoryChoice.forEach(category => {
     category.addEventListener("click", (event) => {
       event.target.classList.toggle('active');
-    })
-  })
-})
+    });
+  });
+});

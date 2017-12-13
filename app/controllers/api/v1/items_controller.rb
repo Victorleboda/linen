@@ -4,7 +4,7 @@ class Api::V1::ItemsController < Api::V1::BaseController
   end
 
   def create
-    @item = Item.new(title: params[:title], category: params[:category], price: params[:price], product_code: params[:product_code], photo: params[:photo], url: params[:url], gender: params[:gender])# TODO code hash
+    @item = Item.new(title: params[:title], category: params[:category].downcase, price: params[:price], product_code: params[:product_code], photo: params[:photo], url: params[:url], gender: params[:gender])# TODO code hash
     @item.brand = Brand.find_or_create_by(name: params[:brand][:name])
     params[:assemblings].each do |assembling_params|
       @item.assemblings.build(percent: assembling_params[:percent], material: Material.find_or_create_by(name: assembling_params[:material][:name]))
