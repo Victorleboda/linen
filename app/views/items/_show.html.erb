@@ -5,9 +5,9 @@
 <%# else %>
   <h2 class="alternative-title">ABOUT THIS PRODUCT</h2>
   <div class="item-evaluation">
-    <div class="general-mark">
+    <div class="general-mark <%= item.color_total %>">
       <!-- put the proper value -->
-      <h1 class="big-mark">76</h1>
+      <h1 class="big-mark"><%= (item.total_impact).to_i %> </h1>
       <p class="rating">/ 100</p>
     </div>
     <div class="detail-info">
@@ -17,17 +17,17 @@
         <div class="impact-info">
           <h3>CLIMATE</h3>
           <!-- put the proper value -->
-          <p>5 / 100</p>
+          <p><%= (item.calcul_climate_impact).to_i %> / 100</p>
         </div>
         <div class="impact-info">
           <h3>WATER</h3>
           <!-- put the proper value -->
-          <p>5 / 100</p>
+          <p><%= (item.calcul_water_impact).to_i %> / 100</p>
         </div>
         <div class="impact-info">
           <h3>AIR</h3>
           <!-- put the proper value -->
-          <p>5 / 100</p>
+          <p><%= (item.calcul_air_impact).to_i %> / 100</p>
         </div>
       </div>
       <% if @item.selections.find_by(user: current_user).nil? %>
@@ -48,9 +48,9 @@
     <% @item.alternatives.each do |alternative| %>
       <div>
         <div class="item-evaluation alternative-evaluation">
-          <div class="general-mark alternative-mark">
+          <div class="general-mark alternative-mark <%= alternative.color_total %>">
             <!-- put the proper value -->
-            <h1 class="big-mark alternative-big-mark">10</h1>
+            <h1 class="big-mark alternative-big-mark"><%=(alternative.total_impact).to_i %> </h1>
             <p class="rating">/ 100</p>
           </div>
           <div class="detail-info">
