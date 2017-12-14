@@ -27,6 +27,8 @@ class Api::V1::ItemsController < Api::V1::BaseController
       return "pull"
     elsif raw_category.include? "robe"
       return "robe"
+    elsif raw_category.include? "cardigan"
+      return "cardigan"
     end
     return raw_category
   end
