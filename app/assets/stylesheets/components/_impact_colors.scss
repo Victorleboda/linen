@@ -7,3 +7,13 @@
 .good_impact {
   background-color: $linenlogo;
 }
+.grade_bad_impact {
+  color: $red;
+}
+.grade_normal_impact {
+  color: $orange;
+}
+.grade_good_impact {
+  color: $linenlogo;
+  font-weight: bold;
+}
