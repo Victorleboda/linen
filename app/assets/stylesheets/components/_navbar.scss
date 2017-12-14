@@ -11,6 +11,12 @@
   justify-content: space-between;
   color: white;
 }
+.container-home > .navbar-wagon {
+  position: fixed;
+  background: transparent;
+  width: 100%;
+  box-shadow: none;
+}
 
 /* Logo */
 .navbar-wagon-brand img {
