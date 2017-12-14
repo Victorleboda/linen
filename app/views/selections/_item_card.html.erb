@@ -21,7 +21,7 @@
 
     <div class="impact-description">
       <div class="total-score <%= selection.item.color_total %>">
-        <h1 > <%= (selection.item.total_impact).to_i %> </h1>
+        <h1> <%= (selection.item.total_impact).to_i %> </h1>
         <p>/ 100</p>
       </div>
       <section>
@@ -45,7 +45,7 @@
            <% end %>
 
            <div class = "score">
-            <p> <%= (selection.item.calcul_climate_impact).round %>/100</p>
+            <p class="<%= selection.item.color_climate %>"> <%= (selection.item.calcul_climate_impact).round %>/100</p>
           </div>
         </div>
       </div>
