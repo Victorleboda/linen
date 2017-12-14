@@ -29,14 +29,18 @@
   </div>
 
   <% if @item.selections.find_by(user: current_user).nil? %>
-    <% if @item.alternatives.nil? %>
-      <%= link_to "#", id: "add-item-to-list", class: "extension-btn simple-link", data: { value: @item.id } do %>
-        Add to my list
-      <% end %>
+    <% if @item.alternatives.nil? || @item.alternatives.empty? %>
+      <div class="btn-center">
+        <%= link_to "#", id: "add-item-to-list", class: "extension-btn white-btn", data: { value: @item.id } do %>
+          Add to my list
+        <% end %>
+      </div>
     <% else %>
-      <%= link_to "#", id: "add-item-to-list", data: { value: @item.id } do %>
-        Add to my list
-      <% end %>
+      <div class="btn-center">
+        <%= link_to "#", id: "add-item-to-list", class: "simple-link go-to-list border-color-black", data: { value: @item.id } do %>
+          Add to my list
+        <% end %>
+      </div>
     <% end %>
   <% else %>
     <p class="added"><em>In your selection !</em></p>
@@ -61,9 +65,10 @@
           <%= image_tag alternative.photo, class: "alternative-photo" %>
           <a class="alternative-link" href="<%= alternative.url %>" ></a>
         </div>
-        <a class="extension-btn" id="add-item-to-list", href="<%= alternative.url %>" >Check it out!</a>
+        <div class="btn-center">
+          <a class="extension-btn", href="<%= alternative.url %>" >Check it out!</a>
+        </div>
       </div>
     <% end %>
   </div>
 <% end %>
-
