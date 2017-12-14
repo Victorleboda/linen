@@ -53,15 +53,17 @@ h2.homepage {
   border: 0;
   font-family: Abel;
   font-weight: bold;
+  opacity: 0.9;
   letter-spacing: 1.6px;
-  background: #333;
+  background: $linenblue;
   transition: background 0.3s ease;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 
 }
 .btn-home:hover {
   border: 0;
-  background: #005474;
+  background: $linenblue;
+  opacity: 1;
 }
 input::placeholder {
   font-size: 20px;
