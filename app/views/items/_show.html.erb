@@ -1,6 +1,6 @@
 <% if @item.calcul_air_impact.nil? || @item.calcul_climate_impact.nil? || @item.calcul_water_impact.nil? %>
   <div>
-    <p>Lack of data for this item</p>
+    <p id="lack-of-info-message">Lack of data for this item</p>
   </div>
 <% else %>
   <h1 class="alternative-title">ABOUT THIS PRODUCT</h1>
@@ -25,15 +25,15 @@
           <p><%= (item.calcul_air_impact).to_i %> / 100</p>
         </div>
       </div>
-      <% if @item.selections.find_by(user: current_user).nil? %>
-        <%= link_to "#", id: "add-item-to-list", data: { value: @item.id } do %>
-          <strong>+</strong> Add to my list
-        <% end %>
-      <% else %>
-        <p class="added"><em>This product is already in your selection !</em></p>
-      <% end %>
     </div>
   </div>
+  <% if @item.selections.find_by(user: current_user).nil? %>
+    <%= link_to "#", id: "add-item-to-list", class: "extension-btn", data: { value: @item.id } do %>
+      Add to my list<strong>+</strong>
+    <% end %>
+  <% else %>
+    <p class="added"><em>This product is already in your selection !</em></p>
+  <% end %>
 <% end %>
 
 <% unless @item.alternatives.first.nil? %>
