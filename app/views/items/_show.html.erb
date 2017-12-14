@@ -29,7 +29,7 @@
   </div>
   <% if @item.selections.find_by(user: current_user).nil? %>
     <%= link_to "#", id: "add-item-to-list", class: "extension-btn", data: { value: @item.id } do %>
-      Add to my list<strong>+</strong>
+      Add to my list
     <% end %>
   <% else %>
     <p class="added"><em>In your selection !</em></p>
