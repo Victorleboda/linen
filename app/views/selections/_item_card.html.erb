@@ -4,16 +4,12 @@
       <%= image_tag selection.item.photo, class: "item-image" %>
     <% end %>
   </div>
-
   <div class="item-description">
     <div class="first-line">
-      <div class="title-item">
-        <%= link_to selection.item.url, target: "_blank" do %>
-          <h2><%= selection.item.title %></h2>
-          <h2> - <%= selection.item.category %> by <%= selection.item.brand.name %></h2>
-          <h2> - <%= selection.item.price %>€</h2>
-        <% end %>
-      </div>
+      <%= link_to selection.item.url, class: "title-item", target: "_blank" do %>
+        <h2 style="max-width: calc(100% - 370px)"><%= selection.item.title %></h2>
+        <h2 style="width: 370px ; text-align: left "> - <%= selection.item.category %> by <%= selection.item.brand.name %> - <%= selection.item.price %>€</h2>
+      <% end %>
       <%= link_to selection_path(selection), method: :delete, class:"cancel", remote: true do %>
       <i class="fa fa-times" aria-hidden="true"></i>
       <% end %>
@@ -45,7 +41,7 @@
            <% end %>
 
            <div class = "score">
-            <p class="<%= selection.item.color_climate %>"> <%= (selection.item.calcul_climate_impact).round %>/100</p>
+            <p class="grade_<%= selection.item.color_climate %>"> <%= (selection.item.calcul_climate_impact).round %>/100</p>
           </div>
         </div>
       </div>
@@ -70,7 +66,7 @@
          <% end %>
 
          <div class = "score">
-          <p> <%= (selection.item.calcul_water_impact).round %>/100</p>
+          <p class="grade_<%= selection.item.color_water %>"><%= (selection.item.calcul_water_impact).round %>/100</p>
         </div>
       </div>
     </div>
@@ -94,7 +90,7 @@
        <% end %>
 
        <div class = "score">
-        <p> <%= (selection.item.calcul_air_impact).round %>/100</p>
+        <p> <span class="grade_<%= selection.item.color_air %>"><%= (selection.item.calcul_air_impact).round %></span>/100</p><p></p>
       </div>
     </div>
   </div>

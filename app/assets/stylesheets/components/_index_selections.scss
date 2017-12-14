@@ -15,8 +15,8 @@
   height: 100%;
 }
 .container-selections {
-  flex-grow: 1;
-  margin: 0 10px;
+  width: calc(100vw - 300px - 35px);
+  margin: 15px 10px;
 }
 .item {
   display: flex;
@@ -24,8 +24,8 @@
   border-bottom: 1px solid rgba(220,224,244,0.4);
   padding: 30px 30px;
   background-color: white;
-  margin: 15 15px;
-  margin-top: 15px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
 .item-image {
@@ -33,19 +33,9 @@
   border-radius: 1px;
 }
 .item-description {
-  flex: 1 0 auto;
+  width: calc(100% - 200px);
   padding: 0px 20px;
   position: relative;
-  h2 {
-    font-size: 22px;
-    margin: 0;
-    margin-right: 10px;
-  }
-  h3 {
-    font-size: 20px;
-    margin: 0;
-    font-weight: bold;
-  }
 }
 .market-place-btn {
   position: absolute;
@@ -114,22 +104,21 @@
   }
 }
 
+
 .title-item {
   display: flex;
   align-items: center;
   text-align: center;
   padding-bottom: 20px;
   padding-top: 5px;
-  h3 {
-    margin-left: 10px;
-    font-weight : lighter;
-    font-size: 15px;
-    margin-top: 5px;
-  }
-  p {
-    margin-bottom: 0;
-    margin-left: 20px;
-    font-size: 15px;
+  width: 100%;
+  h2 {
+    font-size: 22px;
+    margin: 0;
+    margin-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 .title-item > a {
@@ -138,6 +127,7 @@
 }
 .first-line {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   .cancel {
     font-size: 25px;
