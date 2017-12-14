@@ -3,7 +3,7 @@
     <p id="lack-of-info-message">Lack of data for this item</p>
   </div>
 <% else %>
-  <h1 class="alternative-title">ABOUT THIS PRODUCT</h1>
+  <h1 class="item-ext-title">ABOUT THIS PRODUCT</h1>
   <div class="item-evaluation">
     <div class="general-mark <%= item.color_total %>">
       <h1 class="big-mark"><%= (item.total_impact).to_i %> </h1>
@@ -32,12 +32,12 @@
       Add to my list<strong>+</strong>
     <% end %>
   <% else %>
-    <p class="added"><em>This product is already in your selection !</em></p>
+    <p class="added"><em>In your selection !</em></p>
   <% end %>
 <% end %>
 
 <% unless @item.alternatives.first.nil? %>
-  <h1 class="alternative-title">OTHER OPTIONS</h1>
+  <h1 class="item-ext-title alternative-title">BETTER OPTIONS</h1>
 
   <div class="my-slider">
     <% @item.alternatives.each do |alternative| %>
