@@ -7,9 +7,7 @@ class SelectionsController < ApplicationController
 
   def index
     @selection_pool = Selection.joins(:item).where(user: current_user)
-    # @items = current_user.items
-    @categories = Item.pluck(:category).uniq
-    # @items = @items.where(category: params[:item].keys) if params[:item].present?
+    @categories = Item.joins(:selections).where(selections: {user: current_user }).pluck(:category).uniq
     @selections = @selection_pool
     if params[:item].present?
       terms = params[:item].keys
@@ -18,8 +16,8 @@ class SelectionsController < ApplicationController
       end.reduce(:|)
     end
     respond_to do |format|
-      format.html # render selections/index.html.erb
-      format.js # render selections/index.js.erb
+      format.html
+      format.js
     end
   end
 
@@ -38,10 +36,6 @@ class SelectionsController < ApplicationController
     end
   end
   private
-
-  # def selection_params
-    # params.require(:selection).permit(:item_id)
-  # end
 
   def set_selection
     @selection = Selection.find(params[:id])
