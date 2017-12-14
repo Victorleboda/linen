@@ -27,9 +27,16 @@
       </div>
     </div>
   </div>
+
   <% if @item.selections.find_by(user: current_user).nil? %>
-    <%= link_to "#", id: "add-item-to-list", class: "extension-btn", data: { value: @item.id } do %>
-      Add to my list
+    <% if @item.alternatives.nil? %>
+      <%= link_to "#", id: "add-item-to-list", class: "extension-btn simple-link", data: { value: @item.id } do %>
+        Add to my list
+      <% end %>
+    <% else %>
+      <%= link_to "#", id: "add-item-to-list", data: { value: @item.id } do %>
+        Add to my list
+      <% end %>
     <% end %>
   <% else %>
     <p class="added"><em>In your selection !</em></p>
@@ -54,6 +61,7 @@
           <%= image_tag alternative.photo, class: "alternative-photo" %>
           <a class="alternative-link" href="<%= alternative.url %>" ></a>
         </div>
+        <a class="extension-btn" id="add-item-to-list", href="<%= alternative.url %>" >Check it out!</a>
       </div>
     <% end %>
   </div>
