@@ -5111,10 +5111,6 @@ tiny-emitter@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.0.0.tgz#bad327adb1804b42a231afa741532bd884cd09ad"
 
-tiny-slider@^2.3.11:
-  version "2.3.11"
-  resolved "https://registry.yarnpkg.com/tiny-slider/-/tiny-slider-2.3.11.tgz#92fbee7353690ed236218b3714588fb2c072658d"
-
 to-arraybuffer@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/to-arraybuffer/-/to-arraybuffer-1.0.1.tgz#7d229b1fcc637e466ca081180836a7aabff83f43"
