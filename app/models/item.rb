@@ -122,7 +122,7 @@ class Item < ApplicationRecord
     alternative_items = []
     category_items = Item.where(category: self.category).where(gender: self.gender).where.not(id: self.id)
     category_items.each do |category_item|
-      if (category_item.color_total == "good_impact")
+      if (category_item.color_total == "good_impact") && (category_item.total_impact > self.total_impact)
         alternative_items << category_item
       end
     end
