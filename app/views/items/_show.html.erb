@@ -63,10 +63,10 @@
             <h3><%= alternative.title %></h3>
           </div>
           <%= image_tag alternative.photo, class: "alternative-photo" %>
-          <a class="alternative-link" href="<%= alternative.url %>" ></a>
+          <a class="alternative-link" target="_blank" href="<%= alternative.url %>" ></a>
         </div>
         <div class="btn-center">
-          <a class="extension-btn" id="btn-alternative-link", href="<%= alternative.url %>" >Check it out!</a>
+          <a class="extension-btn" id="btn-alternative-link" target="_blank" href="<%= alternative.url %>" >Check it out!</a>
         </div>
       </div>
     <% end %>
