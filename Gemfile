@@ -12,6 +12,7 @@ gem 'puma'
 gem 'rails', '5.1.4'
 gem 'redis'
 gem 'simple_form'
+gem 'omniauth-facebook'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
