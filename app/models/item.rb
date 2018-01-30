@@ -86,11 +86,11 @@ class Item < ApplicationRecord
     if calcul_climate_impact.nil?
       "climate not evaluated yet"
     elsif calcul_climate_impact > LIMIT[:climate][:max]
-      'good_impact'
+      'good'
     elsif calcul_climate_impact < LIMIT[:climate][:min]
-      'bad_impact'
+      'bad'
     else
-      'normal_impact'
+      'average'
     end
   end
 
@@ -98,11 +98,11 @@ class Item < ApplicationRecord
     if calcul_water_impact.nil?
       "water not evaluated yet"
     elsif calcul_water_impact > LIMIT[:water][:max]
-      'good_impact'
+      'good'
     elsif calcul_water_impact < LIMIT[:water][:min]
-      'bad_impact'
+      'bad'
     else
-      'normal_impact'
+      'average'
     end
   end
 
@@ -110,11 +110,11 @@ class Item < ApplicationRecord
     if calcul_air_impact.nil?
       "air not evaluated yet"
     elsif calcul_air_impact > LIMIT[:air][:max]
-      'good_impact'
+      'good'
     elsif calcul_air_impact < LIMIT[:air][:min]
-      'bad_impact'
+      'bad'
     else
-      'normal_impact'
+      'average'
     end
   end
 

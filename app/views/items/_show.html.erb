@@ -6,23 +6,26 @@
   <h1 class="item-ext-title">ABOUT THIS PRODUCT</h1>
   <div class="item-evaluation">
     <div class="general-mark <%= item.color_total %>">
-      <h1 class="big-mark"><%= (item.total_impact).to_i %> </h1>
-      <p class="rating">/ 100</p>
+      <!-- <h1 class="big-mark"><%= (item.total_impact).to_i %> </h1>
+      <p class="rating">/ 100</p> -->
     </div>
     <div class="detail-info">
       <h2><strong><%= item.category %></strong> by <strong><%= item.brand.name %></strong></h2>
       <div class="impact-info-block">
         <div class="impact-info">
           <p><strong>CLIMATE</strong></p>
-          <p><%= (item.calcul_climate_impact).to_i %> / 100</p>
+          <p><%= item.color_climate %></p>
+          <!-- <p><%= (item.calcul_climate_impact).to_i %> / 100</p> -->
         </div>
         <div class="impact-info">
           <p><strong>WATER</strong></p>
-          <p><%= (item.calcul_water_impact).to_i %> / 100</p>
+          <p><%= item.color_water %></p>
+          <!-- <p><%= (item.calcul_water_impact).to_i %> / 100</p> -->
         </div>
         <div class="impact-info">
           <p><strong>AIR</strong></p>
-          <p><%= (item.calcul_air_impact).to_i %> / 100</p>
+          <p><%= item.color_air %></p>
+          <!-- <p><%= (item.calcul_air_impact).to_i %> / 100</p> -->
         </div>
       </div>
     </div>
@@ -55,8 +58,8 @@
       <div>
         <div class="item-evaluation alternative-evaluation">
           <div class="general-mark alternative-mark <%= alternative.color_total %>">
-            <h1 class="big-mark alternative-big-mark"><%=(alternative.total_impact).to_i %> </h1>
-            <p class="rating">/ 100</p>
+            <!-- <h1 class="big-mark alternative-big-mark"><%=(alternative.total_impact).to_i %> </h1>
+            <p class="rating">/ 100</p> -->
           </div>
           <div class="detail-info alternative-info">
             <h2><strong><%= alternative.category %></strong> by <strong><%= alternative.brand.name %></strong></h2>
